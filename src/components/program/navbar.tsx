@@ -27,7 +27,6 @@ export function Navbar() {
       label: "BUSINESS VERTICALS",
       items: [
         { href: "/recycling", label: "Recycling" },
-        { href: "/manufacturing", label: "Manufacturing" },
         { href: "/trading", label: "Trading" },
       ],
     },

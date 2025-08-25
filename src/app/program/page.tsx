@@ -29,8 +29,6 @@ export default function AboutPage() {
             <span className="text-gray-700 font-medium">About Us</span>
           </div>
           <AboutContent />
-          <Milestones />
-          <Facilities />
           <Certifications />
           <CTA />
         </div>

@@ -44,11 +44,9 @@ const Footer = () => {
         <div className="w-full lg:w-1/5 border-l border-gray-300 pl-5">
           <h3 className="text-lg font-bold text-[#400000] mb-4">REGISTERED OFFICE</h3>
           <div className="space-y-1 text-gray-700">
-            <p>Arya Surya Enclave, Plot No- K5/475,</p>
-            <p>Khata No 95/937, Fourth Floor, Mouza-</p>
-            <p>Subudhi Pur, Kalinga Vihar, Patrapada,</p>
-            <p>Bhuabneswar, Dist- Khurda,</p>
-            <p>Odisha, India-751019.</p>
+            <p>Arya Surya Enclave,Fourth Floor,</p>
+            <p> Plot No- K5/475,Kalinga Vihar,</p>
+            <p>Bhuabneswar,Odisha, India-751019.</p>
           </div>
         </div>
 
@@ -56,7 +54,7 @@ const Footer = () => {
         <div className="w-full lg:w-1/5 border-l border-gray-300 pl-5">
           <h3 className="text-lg font-bold text-[#400000] mb-4">FOR MORE DETAILS</h3>
           <p className="text-gray-700">
-            Phone: <span className="font-medium">+91 9777098999</span>,<span>+91 9777063999</span>
+            Phone: <span className="font-medium">+91 9777098999</span>,<span> +91 9777063999</span>
                       </p>
           <p className="text-gray-700">
             Email: <span className="font-medium">info@utkalcorporation.in</span>

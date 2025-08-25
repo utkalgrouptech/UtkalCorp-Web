@@ -99,15 +99,6 @@ export default function HomePage() {
         <p className="text-xl md:text-2xl text-gray-300">Delivering excellence worldwide</p>
       </div>
     </div>
-
-    {/* Slide 5 */}
-    <div className="relative w-full h-screen flex items-center justify-center bg-gray-600">
-      <img src={Homeimg5.src} alt="Slide 5" className="w-full h-full object-cover" />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center bg-black bg-opacity-50">
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-4">Innovation at Core</h1>
-        <p className="text-xl md:text-2xl text-gray-300">Pioneering the future of metal industry</p>
-      </div>
-    </div>
   </Slider>
 </section>
 
@@ -121,7 +112,7 @@ export default function HomePage() {
       data-aos="fade-right"
     >
       <img
-        src={m2.src}
+        src="https://lh3.googleusercontent.com/p/AF1QipNyZBLaW2xGZjhUP3Qbmiab5tzqfgmIVqSri0Ye=s1360-w1360-h1020-rw"
         alt="About Utkal Corporation"
         className="w-full h-80 object-cover rounded-3xl"
       />
@@ -182,24 +173,7 @@ export default function HomePage() {
                 </p>
               </>
             )}
-            {idx === 1 && (
-              <>
-                <h3 className="text-2xl font-semibold mb-4 text-gray-800">
-                  Custom Metal Refining
-                </h3>
-                <p className="text-gray-600 leading-relaxed max-h-[350px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
-                  Tailored Solutions for Diverse Industries
 
-                  Custom metal refining involves the precise processing of raw metals to meet specific industry standards and applications. This service is essential for sectors requiring high-performance materials, such as aerospace, automotive, and electronics. By adjusting chemical compositions and refining processes, manufacturers can produce metals with desired properties, including strength, corrosion resistance, and conductivity.
-
-                  Common metal refining techniques include electrorefining, pyrometallurgical processes, and hydrometallurgical methods. Electrorefining uses electrical currents to purify metals, while pyrometallurgical processes involve high-temperature treatments to separate impurities. Hydrometallurgical methods utilize aqueous solutions to extract metals, offering advantages in terms of energy efficiency and selectivity.
-
-                  In the automotive industry, custom metal refining ensures the production of lightweight yet durable components, contributing to fuel efficiency and safety. Aerospace manufacturers rely on refined metals for engine parts and structural components that must withstand extreme conditions. In electronics, refined metals are crucial for the production of semiconductors and connectors that enable high-speed data transmission.
-
-                  The demand for sustainable practices in metal refining is increasing. Implementing energy-efficient technologies, recycling by-products, and reducing emissions are essential steps towards achieving environmental sustainability in metal refining.
-                </p>
-              </>
-            )}
             {idx === 2 && (
               <>
                 <h3 className="text-2xl font-semibold mb-4 text-gray-800">
@@ -250,25 +224,6 @@ export default function HomePage() {
           <h3 className="text-2xl font-bold text-white">Copper</h3>
           <p className="text-white text-sm mt-2 max-w-[90%]">
             With the annual recycling capacity scrap of copper, motor, cables etc.
-          </p>
-          <button className="text-white font-semibold mt-3 hover:underline">
-            Explore +
-          </button>
-        </div>
-      </div>
-
-      {/* Lead */}
-      <div className="relative rounded-3xl overflow-hidden shadow-xl transition-transform transform hover:scale-105">
-        <img
-          src={product1.src}
-          alt="Lead"
-          className="w-full h-60 object-cover rounded-t-3xl"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-3xl"></div>
-        <div className="absolute bottom-6 left-6 text-left">
-          <h3 className="text-2xl font-bold text-white">Lead</h3>
-          <p className="text-white text-sm mt-2 max-w-[90%]">
-            With the annual recycling capacity scrap of lead, lead acid batteries etc.
           </p>
           <button className="text-white font-semibold mt-3 hover:underline">
             Explore +
@@ -332,7 +287,7 @@ export default function HomePage() {
   {/* Section Content */}
   <div className="relative z-10 container text-center">
     <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6 leading-tight tracking-tight">
-      Expanding Across <span className="text-red-500">70+ Countries</span>
+      Expanding Across <span className="text-red-500">17+ Countries</span>
     </h2>
     <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
       Our presence is felt worldwide, connecting talent, innovation, and opportunity across continents.

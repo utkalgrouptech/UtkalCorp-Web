@@ -8,12 +8,8 @@ export function ContactMap() {
   const mapUrls = {
     headquarters:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d412.66028536560367!2d85.75513660966763!3d20.244715835556402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a9f84571a633%3A0x600f47c59a3bcf8!2sUtkal%20Group%20of%20Companies!5e1!3m2!1sen!2sin!4v1743144349889!5m2!1sen!2sin",
-    plant:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242118.14200802277!2d73.72287747484555!3d18.524564859944184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1682512614879!5m2!1sen!2sin",
     delhi:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224346.54004834228!2d77.06889969643787!3d28.527280258421567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1682512652879!5m2!1sen!2sin",
-    bangalore:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.90089976856!2d77.49085075436377!3d12.953997349304733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1682512688879!5m2!1sen!2sin",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.866918528092!2d77.16561737528451!3d28.513651425729932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1e6d1c6c5601%3A0x8888799beda9f79e!2sSector%20A%20Main%20Rd%2C%20Pocket%20B-C%2C%20Sector-A%2C%20Vasant%20Kunj%2C%20New%20Delhi%2C%20Delhi%20110070!5e0!3m2!1sen!2sin!4v1756119392545!5m2!1sen!2sin",
   }
 
   return (
