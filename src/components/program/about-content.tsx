@@ -1,4 +1,4 @@
-export function AboutContent() {
+export function AboutContentAdmin() {
     return (
       <section className="py-12">
         <div className="max-w-4xl mx-auto">

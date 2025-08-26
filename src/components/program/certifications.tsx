@@ -1,4 +1,4 @@
-export function Certifications() {
+export function CertificationsAdmin() {
     const certifications = [
       {
         name: "ISO 9001:2015",

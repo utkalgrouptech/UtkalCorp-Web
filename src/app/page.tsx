@@ -1,461 +1,793 @@
-'use client';
-
+"use client"
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { About, client1, client2, client3, Homeimg1, Homeimg2, Homeimg3, Homeimg4, Homeimg5, product1, product2, product3, product4, ServiceImage1, ServiceImage2, ServiceImage3, worldmap } from '@/asserts/home';
-import { m2 } from '@/asserts/Product';
-
-
-type LocationIconProps = {
-  top: string;
-  left: string;
-};
-
-const LocationIcon: React.FC<LocationIconProps> = ({ top, left }) => (
-  <span
-    style={{
-      position: 'absolute',
-      top,
-      left,
-      transform: 'translate(-50%, -100%)',
-      zIndex: 20,
-      pointerEvents: 'none',
-    }}
-    aria-label="Location"
-  >
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <circle cx="16" cy="16" r="12" fill="#F59E42" opacity="0.8" />
-      <circle cx="16" cy="16" r="7" fill="#fff" />
-      <circle cx="16" cy="16" r="3" fill="#F59E42" />
-    </svg>
-  </span>
-);
+import { Homeimg2, product2, product3, product4 } from '@/asserts/home';
+import Link from 'next/link';
+import { Productimg4 } from '@/asserts/Product';
 
 export default function HomePage() {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ 
+      duration: 1000, 
+      once: true,
+      easing: 'ease-out-cubic'
+    });
   }, []);
 
   const sliderSettings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
+    fade: true,
+    cssEase: 'linear'
   };
-  const sliderSettings2 = {
+
+  const testimonialSettings = {
     dots: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 2,
+    speed: 600,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
   };
 
   return (
     <div className="w-full overflow-hidden">
-      {/* Hero Section with Slider */}
-      <section className="w-full h-screen bg-black text-white flex items-center justify-center">
-  <Slider {...sliderSettings} className="w-full h-full">
-    {/* Slide 1 */}
-    <div className="relative w-full h-screen flex items-center justify-center bg-black">
-      <img src={Homeimg1.src} alt="Slide 1" className="w-full h-full object-cover" />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center bg-black bg-opacity-50">
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-4">Welcome to Utkal Corporation</h1>
-        <p className="text-xl md:text-2xl text-gray-300">Leading the industry with innovation and trust</p>
-      </div>
-    </div>
+      {/* Hero Section */}
+      <section className="relative w-full h-screen">
+        <Slider {...sliderSettings} className="w-full h-full">
+          <div className="relative h-screen">
+            <img 
+              src={Homeimg2.src}
+              alt="Modern metal recycling facility" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <div className="text-center text-white px-4" data-aos="fade-up">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6">Utkal Corporation</h1>
+                <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
+                  Leading the way in sustainable metal recycling and Trading industrial solutions
+                </p>
+                <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+                  Explore Our Services
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div className="relative h-screen">
+            <img 
+              src="https://images.unsplash.com/photo-1591955506264-3f5a6834570a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+              alt="Copper materials" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <div className="text-center text-white px-4" data-aos="fade-up" data-aos-delay="200">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6">Quality Metals</h1>
+                <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
+                  Premium copper, aluminum, and zinc products for industrial applications
+                </p>
+                <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+                  View Products
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div className="relative h-screen">
+            <img 
+              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+              alt="Global business" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <div className="text-center text-white px-4" data-aos="fade-up" data-aos-delay="400">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6">Global Reach</h1>
+                <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
+                  Serving clients across 17+ countries with excellence and reliability
+                </p>
+                <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+                  Contact Us
+                </button>
+              </div>
+            </div>
+          </div>
+        </Slider>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
+          </div>
+        </div>
+      </section>
 
-    {/* Slide 2 */}
-    <div className="relative w-full h-screen flex items-center justify-center bg-gray-900">
-      <img src={Homeimg2.src} alt="Slide 2" className="w-full h-full object-cover" />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center bg-black bg-opacity-50">
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-4">Innovative Metal Recycling</h1>
-        <p className="text-xl md:text-2xl text-gray-300">Eco-friendly solutions tailored for the future</p>
-      </div>
-    </div>
-
-    {/* Slide 3 */}
-    <div className="relative w-full h-screen flex items-center justify-center bg-gray-800">
-      <img src={Homeimg3.src} alt="Slide 3" className="w-full h-full object-cover" />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center bg-black bg-opacity-50">
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-4">Sustainable Practices</h1>
-        <p className="text-xl md:text-2xl text-gray-300">Committed to a greener tomorrow</p>
-      </div>
-    </div>
-
-    {/* Slide 4 */}
-    <div className="relative w-full h-screen flex items-center justify-center bg-gray-700">
-      <img src={Homeimg4.src} alt="Slide 4" className="w-full h-full object-cover" />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center bg-black bg-opacity-50">
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-4">Our Global Presence</h1>
-        <p className="text-xl md:text-2xl text-gray-300">Delivering excellence worldwide</p>
-      </div>
-    </div>
-  </Slider>
-</section>
-
+      {/* Stats Section */}
+      <section className="py-20 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div className="p-6" data-aos="fade-up" data-aos-delay="100">
+              <div className="text-4xl md:text-5xl font-bold text-amber-600 mb-2">25+</div>
+              <div className="text-gray-700">Years Experience</div>
+            </div>
+            <div className="p-6" data-aos="fade-up" data-aos-delay="200">
+              <div className="text-4xl md:text-5xl font-bold text-amber-600 mb-2">17+</div>
+              <div className="text-gray-700">Countries Served</div>
+            </div>
+            <div className="p-6" data-aos="fade-up" data-aos-delay="300">
+              <div className="text-4xl md:text-5xl font-bold text-amber-600 mb-2">500+</div>
+              <div className="text-gray-700">Clients Worldwide</div>
+            </div>
+            <div className="p-6" data-aos="fade-up" data-aos-delay="400">
+              <div className="text-4xl md:text-5xl font-bold text-amber-600 mb-2">100K+</div>
+              <div className="text-gray-700">Tons Processed Yearly</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* About Section */}
-<section className="py-24 px-6 bg-gradient-to-br from-white via-blue-50 to-blue-100">
-  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-    {/* Image Section */}
-    <div
-      className="rounded-3xl overflow-hidden shadow-2xl transform transition duration-500 hover:scale-105"
-      data-aos="fade-right"
-    >
-      <img
-        src="https://lh3.googleusercontent.com/p/AF1QipNyZBLaW2xGZjhUP3Qbmiab5tzqfgmIVqSri0Ye=s1360-w1360-h1020-rw"
-        alt="About Utkal Corporation"
-        className="w-full h-80 object-cover rounded-3xl"
-      />
-    </div>
-
-    {/* Content Section */}
-    <div
-      className="bg-white/70 backdrop-blur-md rounded-3xl shadow-xl p-8 md:p-10"
-      data-aos="fade-left"
-    >
-      <h2 className="text-4xl font-extrabold text-blue-900 mb-4 leading-snug">
-        About <span className="text-blue-600">Utkal Corporation</span>
-      </h2>
-      <p className="text-gray-700 text-lg leading-relaxed">
-        Utkal Corporation is one of the largest non-ferrous metal recycling companies in India,
-        with decades of expertise in delivering <span className="text-blue-600 font-medium">quality</span> and
-        <span className="text-blue-600 font-medium"> sustainable solutions</span> for a better future.
-      </p>
-    </div>
-  </div>
-</section>
-
-      {/* Services Section with Slider */}
-<section className="py-16 px-4 bg-gray-100">
-  <div className="max-w-6xl mx-auto text-center" data-aos="fade-up">
-    <h2 className="text-3xl font-semibold mb-12">Our Services</h2>
-
-    <Slider {...sliderSettings} className="relative">
-      {[ServiceImage1, ServiceImage2, ServiceImage3].map((image, idx) => (
-        <div key={idx} className="flex justify-center  items-center bg-white rounded-lg shadow-lg overflow-hidden">
-          {/* Image Left */}
-          <div className=" w-full">
-            <img
-              src={image.src}
-              alt={`Service ${idx + 1}`}
-              className="w-full h-full object-cover max-h-[400px]"
-              loading="lazy"
-            />
-          </div>
-
-          {/* Content Right */}
-          <div className=" w-full p-8 flex flex-col justify-center">
-            {idx === 0 && (
-              <>
-                <h3 className="text-2xl font-semibold mb-4 text-gray-800">
-                  Scrap Processing and Recycling
-                </h3>
-                <p className="text-gray-600 leading-relaxed max-h-[350px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
-                  Transforming Waste into Valuable Resources
-
-                  Scrap processing and recycling are pivotal in the modern industrial landscape, serving as the cornerstone of sustainable manufacturing practices. This process involves the collection, sorting, and reprocessing of metal waste materials—such as old machinery, vehicles, and construction debris—into reusable raw materials. By diverting scrap from landfills, recycling conserves natural resources, reduces energy consumption, and minimizes greenhouse gas emissions.
-
-                  The global scrap metal recycling market was valued at approximately USD 407.02 billion in 2023, with projections to reach USD 568.76 billion by 2032, growing at a CAGR of 3.8%. This growth is driven by the increasing demand for sustainable materials in industries such as construction, automotive, and electronics. Recycling one ton of steel can prevent the use of 2,500 pounds of iron ore and 1,400 pounds of coal, significantly reducing energy consumption and emissions.
-
-                  Modern scrap processing facilities employ advanced technologies to enhance efficiency and material recovery. Automated sorting systems, magnetic separators, and shredders enable the precise extraction of valuable metals from mixed waste streams. Additionally, innovations in hydrometallurgical and pyrometallurgical processes allow for the recovery of metals from complex waste sources, further improving recycling rates.
-
-                  Despite significant advancements, the scrap recycling industry faces challenges such as fluctuating commodity prices, inconsistent quality of incoming scrap, and the need for infrastructure development. Addressing these issues through policy reforms, investment in recycling infrastructure, and public awareness campaigns can unlock the full potential of scrap processing and recycling, contributing to a circular economy.
-                </p>
-              </>
-            )}
-
-            {idx === 2 && (
-              <>
-                <h3 className="text-2xl font-semibold mb-4 text-gray-800">
-                  Environmental Sustainability Services
-                </h3>
-                <p className="text-gray-600 leading-relaxed max-h-[350px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
-                  Commitment to a Greener Future
-
-                  Environmental sustainability services encompass a range of practices aimed at minimizing the ecological footprint of industrial operations. In the metal industry, this includes reducing energy consumption, minimizing waste, and lowering emissions throughout the production lifecycle. By adopting sustainable practices, companies can not only comply with environmental regulations but also achieve cost savings and enhance their corporate reputation.
-
-                  Key strategies for promoting sustainability in metal manufacturing include:
-
-                  - Energy Efficiency: Investing in energy-efficient equipment and processes to reduce energy consumption.
-                  - Resource Efficiency: Optimizing the use of raw materials and minimizing waste generation.
-                  - Pollution Control: Implementing technologies to reduce emissions and treat waste products.
-                  - Water Conservation: Recycling water used in manufacturing processes to reduce consumption.
-                  - Sustainable Sourcing: Obtaining raw materials from suppliers that adhere to environmental standards.
-
-                  The global push towards sustainability has led to the development of standards and certifications for environmentally friendly metals. For example, the London Metal Exchange plans to introduce a green premium for metals mined sustainably, allowing traders to purchase green aluminium, copper, nickel, and zinc through Metalshub.
-
-                  Despite the benefits, implementing sustainable practices in metal manufacturing presents challenges such as high initial investment costs and technological barriers. However, advancements in technology, government incentives, and increasing consumer demand for sustainable products are driving the adoption of environmental sustainability services in the metal industry.
-                </p>
-              </>
-            )}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="w-full md:w-1/2" data-aos="fade-right">
+              <div className="relative">
+                <img 
+                  src={Productimg4.src} 
+                  alt="About Utkal Corporation" 
+                  className="rounded-2xl shadow-xl w-full"
+                />
+                <div className="absolute -bottom-6 -right-6 bg-amber-500 text-white p-6 rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="600">
+                  <div className="text-3xl font-bold">25+</div>
+                  <div className="text-sm">Years of Excellence</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="w-full md:w-1/2" data-aos="fade-left">
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">About Utkal Corporation</h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Utkal Corporation is one of India's leading non-ferrous metal Trading companies, with over two decades of expertise in delivering quality and sustainable solutions. We specialize in the recycling and processing of copper, aluminum, zinc, and other metals to serve various industries worldwide.
+              </p>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Our state-of-the-art facilities and commitment to environmental responsibility make us the preferred partner for businesses looking for reliable metal solutions with a reduced carbon footprint.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                <div className="flex items-center">
+                  <div className="bg-amber-100 p-3 rounded-full mr-4">
+                    <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                  </div>
+                  <span className="text-gray-700 font-medium">Quality Certified</span>
+                </div>
+                
+                <div className="flex items-center">
+                  <div className="bg-amber-100 p-3 rounded-full mr-4">
+                    <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                    </svg>
+                  </div>
+                  <span className="text-gray-700 font-medium">Global Export</span>
+                </div>
+                
+                <div className="flex items-center">
+                  <div className="bg-amber-100 p-3 rounded-full mr-4">
+                    <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                  </div>
+                  <span className="text-gray-700 font-medium">Fast Delivery</span>
+                </div>
+                
+                <div className="flex items-center">
+                  <div className="bg-amber-100 p-3 rounded-full mr-4">
+                    <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  </div>
+                  <span className="text-gray-700 font-medium">Eco-Friendly</span>
+                </div>
+              </div>
+              
+              <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+                Learn More About Us
+              </button>
+            </div>
           </div>
         </div>
-      ))}
-    </Slider>
-  </div>
-</section>
+      </section>
 
-
-      {/* Product Section */}
-<section className="py-20 px-4 bg-white">
-  <div className="max-w-7xl mx-auto text-center" data-aos="fade-up">
-    <h2 className="text-4xl font-bold mb-16 text-gray-800">Our Products</h2>
-
-    <div className="grid md:grid-cols-4 gap-10">
-      {/* Copper */}
-      <div className="relative rounded-3xl overflow-hidden shadow-xl transition-transform transform hover:scale-105">
-        <img
-          src={product2.src}
-          alt="Copper"
-          className="w-full h-60 object-cover rounded-t-3xl"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-3xl"></div>
-        <div className="absolute bottom-6 left-6 text-left">
-          <h3 className="text-2xl font-bold text-white">Copper</h3>
-          <p className="text-white text-sm mt-2 max-w-[90%]">
-            With the annual recycling capacity scrap of copper, motor, cables etc.
-          </p>
-          <button className="text-white font-semibold mt-3 hover:underline">
-            Explore +
-          </button>
+      {/* Services Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16" data-aos="fade-up">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We provide comprehensive metal recycling and processing services with a focus on quality, sustainability, and customer satisfaction.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src="https://cdn.prod.website-files.com/653ed7060b01292cd4518d0e/67d86292c694db5ac8885078_RS_ImageBank_Recycling_12-p-2000.jpg" 
+                  alt="Metal Recycling" 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-3">Metal Recycling</h3>
+                <p className="text-gray-600 mb-4">
+                  Environmentally responsible recycling of copper, aluminum, zinc and other non-ferrous metals with advanced processing techniques.
+                </p>
+                <a href="#" className="text-amber-600 font-semibold flex items-center hover:text-amber-700">
+                  Learn More
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src="https://www.mtcgroup.in/images/heavy-mealting-scrap.jpg" 
+                  alt="Metal Processing" 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-3">Metal Trading</h3>
+                <p className="text-gray-600 mb-4">
+                  Advanced refining and processing to produce high-purity metal products meeting international quality standards.
+                </p>
+                <a href="#" className="text-amber-600 font-semibold flex items-center hover:text-amber-700">
+                  Learn More
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="500">
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src="https://img.freepik.com/free-photo/global-logistics-transportation-network_23-2152005448.jpg?semt=ais_hybrid&w=740&q=80" 
+                  alt="Global Distribution" 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-3">Global Distribution</h3>
+                <p className="text-gray-600 mb-4">
+                  Efficient logistics and supply chain management to deliver products to clients across 17+ countries worldwide.
+                </p>
+                <a href="#" className="text-amber-600 font-semibold flex items-center hover:text-amber-700">
+                  Learn More
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Aluminium */}
-      <div className="relative rounded-3xl overflow-hidden shadow-xl transition-transform transform hover:scale-105">
-        <img
-          src={product3.src}
-          alt="Aluminum"
-          className="w-full h-60 object-cover rounded-t-3xl"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-3xl"></div>
-        <div className="absolute bottom-6 left-6 text-left">
-          <h3 className="text-2xl font-bold text-white">Aluminium</h3>
-          <p className="text-white text-sm mt-2 max-w-[90%]">
-            With the annual recycling capacity scrap of Aluminium scrap.
-          </p>
-          <button className="text-white font-semibold mt-3 hover:underline">
-            Explore +
-          </button>
+      {/* Products Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16" data-aos="fade-up">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Products</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of high-quality metal products that cater to various industrial applications and requirements.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="group relative overflow-hidden rounded-2xl shadow-lg" data-aos="flip-left" data-aos-delay="100">
+              <img 
+                src={product2.src}
+                alt="Copper Products" 
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <div className="p-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Copper Products</h3>
+                  <p className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    High-quality copper scrap, cathodes, and processed materials
+                  </p>
+                  <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 transform translate-y-8 group-hover:translate-y-0">
+                    Explore
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group relative overflow-hidden rounded-2xl shadow-lg" data-aos="flip-left" data-aos-delay="300">
+              <img 
+                src={product3.src}
+                alt="Aluminum Products" 
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <div className="p-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Aluminum Products</h3>
+                  <p className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Various grades of aluminum scrap and processed aluminum materials
+                  </p>
+                  <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 transform translate-y-8 group-hover:translate-y-0">
+                    Explore
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group relative overflow-hidden rounded-2xl shadow-lg" data-aos="flip-left" data-aos-delay="500">
+              <img 
+                src={product4.src} 
+                alt="Zinc Products" 
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <div className="p-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Iron Products</h3>
+                  <p className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    High-purity Iron materials for industrial applications
+                  </p>
+                  <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 transform translate-y-8 group-hover:translate-y-0">
+                    Explore
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center mt-12" data-aos="fade-up">
+            <Link href="/products">
+            <button className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300">
+               View All Products
+            </button>
+            </Link>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Zinc */}
-      <div className="relative rounded-3xl overflow-hidden shadow-xl transition-transform transform hover:scale-105">
-        <img
-          src={product4.src}
-          alt="Zinc"
-          className="w-full h-60 object-cover rounded-t-3xl"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-3xl"></div>
-        <div className="absolute bottom-6 left-6 text-left">
-          <h3 className="text-2xl font-bold text-white">Iron</h3>
-          <p className="text-white text-sm mt-2 max-w-[90%]">
-            State of the art Iron refinery, we produce high-purity Iron of &gt;99.95%.
-          </p>
-          <button className="text-white font-semibold mt-3 hover:underline">
-            Explore +
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section className="relative w-full py-24 bg-gradient-to-b from-white to-gray-100 overflow-hidden">
-  {/* Blurred World Map Background */}
-  <div className="absolute inset-0 z-0 opacity-full">
-    <img
-      src={worldmap.src}
-      alt="World Map"
-      className="w-full h-full object-cover blur-[3px]"
-    />
-  </div>
-
-  {/* Section Content */}
-  <div className="relative z-10 container text-center">
-    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6 leading-tight tracking-tight">
-      Expanding Across <span className="text-red-500">17+ Countries</span>
-    </h2>
-    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
-      Our presence is felt worldwide, connecting talent, innovation, and opportunity across continents.
-    </p>
-
-    {/* Interactive Map Icons */}
-    <div className="relative w-full h-[500px] max-w-6xl mx-auto">
-      {/* Sample Location Pins */}
-      <LocationIcon top="15%" left="98%" />
-      <LocationIcon top="38%" left="58%" />
-      <LocationIcon top="50%" left="35%" />
-      <LocationIcon top="65%" left="75%" />
-      {/* Add more <LocationIcon /> as needed */}
-    </div>
-
-    {/* Scroll Down Bouncing Button */}
-    <div className="mt-12 flex justify-center">
-      <button className="animate-bounce bg-yellow-400 hover:bg-yellow-500 text-white p-4 rounded-full shadow-xl transition">
-        <span className="text-2xl">↓</span>
-      </button>
-    </div>
-  </div>
-</section>
-
-      {/* Clients Section with Slider */}
-      <section className="py-20 px-4 bg-gray-100">
-  <div className="max-w-9xl mx-auto text-center" data-aos="zoom-in">
-    <h2 className="text-4xl font-bold text-gray-800 mb-16">What Our Clients Say</h2>
-
-    {/* Review Slider */}
-    <Slider {...sliderSettings2}>
-      {/* Review 1 */}
-      <div className="px-6">
-        <div className="bg-white p-8 rounded-xl shadow-lg max-w-xl mx-auto text-center">
-          <img
-            src={client1.src}
-            alt="Client 1"
-            className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
+      {/* Global Presence Section */}
+      <section className="py-20 bg-gray-900 text-white relative">
+        <div className="absolute inset-0 opacity-10">
+          <img 
+            src="https://images.unsplash.com/photo-1534533983688-c7b8e13fd3b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+            alt="World map pattern" 
+            className="w-full h-full object-cover"
           />
-          <p className="text-gray-600 italic mb-4">“Utkal Corporation went above and beyond. Our partnership over the years.”</p>
-          <h4 className="text-lg font-semibold text-gray-800">Ramesh Kumar</h4>
         </div>
-      </div>
-
-      {/* Review 2 */}
-      <div className="px-6">
-        <div className="bg-white p-8 rounded-xl shadow-lg max-w-xl mx-auto text-center">
-          <img
-            src={client2.src}
-            alt="Client 2"
-            className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
-          />
-          <p className="text-gray-600 italic mb-4">“Truly professional service and reliable communication throughout.”</p>
-          <h4 className="text-lg font-semibold text-gray-800">Ananta Mehta</h4>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16" data-aos="fade-up">
+            <h2 className="text-4xl font-bold mb-4">Global Presence</h2>
+            <p className="max-w-2xl mx-auto text-gray-300">
+              Serving clients across the globe with excellence and reliability for over two decades
+            </p>
+          </div>
+          
+          <div className="flex justify-center mb-16" data-aos="zoom-in">
+            <div className="relative w-full max-w-4xl h-96 bg-gray-800 rounded-2xl overflow-hidden shadow-xl">
+              <img 
+                src="https://img.freepik.com/premium-vector/basic-earth-map-continents_78370-2988.jpg" 
+                alt="World map" 
+                className="w-full h-full object-cover opacity-60"
+              />
+              
+              {/* Animated location markers */}
+              <div className="absolute top-1/4 left-2/4 animate-pulse">
+                <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+              </div>
+              <div className="absolute top-2/5 left-1/5 animate-pulse" style={{animationDelay: '0.7s'}}>
+                <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+              </div>
+              <div className="absolute top-1/3 left-1/2 animate-pulse" style={{animationDelay: '1.4s'}}>
+                <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+              </div>
+              <div className="absolute top-2/3 left-1/4 animate-pulse" style={{animationDelay: '2.1s'}}>
+                <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+              </div>
+              <div className="absolute top-1/2 left-3/4 animate-pulse" style={{animationDelay: '2.8s'}}>
+                <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="fade-up">
+            <div>
+              <div className="text-3xl font-bold text-amber-500 mb-2">Asia</div>
+              <div className="text-gray-300">8 Countries</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-amber-500 mb-2">Europe</div>
+              <div className="text-gray-300">5 Countries</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-amber-500 mb-2">Middle East</div>
+              <div className="text-gray-300">3 Countries</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-amber-500 mb-2">Africa</div>
+              <div className="text-gray-300">1 Country</div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Review 3 */}
-      <div className="px-6">
-        <div className="bg-white p-8 rounded-xl shadow-lg max-w-xl mx-auto text-center">
-          <img
-            src={client3.src}
-            alt="Client 3"
-            className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
-          />
-          <p className="text-gray-600 italic mb-4">“They helped us scale smoothly. Trustworthy and top-quality output.”</p>
-          <h4 className="text-lg font-semibold text-gray-800">Vikram Patel</h4>
+      </section>
+            {/* Testimonials Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16" data-aos="fade-up">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Hear from our satisfied clients across the globe who have experienced our exceptional service and quality products.
+            </p>
+          </div>
+          
+          <Slider {...testimonialSettings}>
+            <div className="px-4">
+              <div className="bg-white p-8 rounded-2xl shadow-lg h-full" data-aos="flip-left" data-aos-delay="100">
+                <div className="flex items-center mb-4">
+                  <div className="text-amber-500 text-2xl">★★★★★</div>
+                </div>
+                <p className="text-gray-600 italic mb-6">
+                  "Utkal Corporation has been our trusted partner for over 5 years. Their consistent quality and reliable delivery have helped our manufacturing process tremendously."
+                </p>
+                <div className="flex items-center">
+                  <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                    alt="Client" 
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <div className="font-bold text-gray-800">Rajesh Sharma</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="px-4">
+              <div className="bg-white p-8 rounded-2xl shadow-lg h-full" data-aos="flip-left" data-aos-delay="300">
+                <div className="flex items-center mb-4">
+                  <div className="text-amber-500 text-2xl">★★★★★</div>
+                </div>
+                <p className="text-gray-600 italic mb-6">
+                  "The quality of copper products from Utkal Corporation exceeds international standards. Their commitment to sustainability aligns with our company values."
+                </p>
+                <div className="flex items-center">
+                  <img 
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                    alt="Client" 
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <div className="font-bold text-gray-800">Sarah Johnson</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="px-4">
+              <div className="bg-white p-8 rounded-2xl shadow-lg h-full" data-aos="flip-left" data-aos-delay="500">
+                <div className="flex items-center mb-4">
+                  <div className="text-amber-500 text-2xl">★★★★☆</div>
+                </div>
+                <p className="text-gray-600 italic mb-6">
+                  "We've been importing aluminum from Utkal Corporation for three years now. Their logistics support and documentation are impeccable, making international trade seamless."
+                </p>
+                <div className="flex items-center">
+                  <img 
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                    alt="Client" 
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <div className="font-bold text-gray-800">David Müller</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="px-4">
+              <div className="bg-white p-8 rounded-2xl shadow-lg h-full" data-aos="flip-left" data-aos-delay="700">
+                <div className="flex items-center mb-4">
+                  <div className="text-amber-500 text-2xl">★★★★★</div>
+                </div>
+                <p className="text-gray-600 italic mb-6">
+                  "Their technical support team helped us optimize our recycling process, resulting in 15% higher efficiency. A true partnership approach to business."
+                </p>
+                <div className="flex items-center">
+                  <img 
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                    alt="Client" 
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <div className="font-bold text-gray-800">Michael Chen</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Slider>
         </div>
-      </div>
-    </Slider>
-  </div>
-</section>
+      </section>
 
+      {/* Sustainability Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="w-full md:w-1/2" data-aos="fade-right">
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">Commitment to Sustainability</h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                At Utkal Corporation, we believe that responsible metal recycling is essential for a sustainable future. Our processes are designed to minimize environmental impact while maximizing resource recovery.
+              </p>
+              
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start">
+                  <div className="bg-green-100 p-2 rounded-full mr-4 mt-1">
+                    <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800">Energy Efficiency</h4>
+                    <p className="text-gray-600">Our facilities use 30% less energy than industry averages through innovative technology</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="bg-green-100 p-2 rounded-full mr-4 mt-1">
+                    <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800">Water Recycling</h4>
+                    <p className="text-gray-600">Closed-loop water systems reduce consumption by over 80% compared to traditional methods</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="bg-green-100 p-2 rounded-full mr-4 mt-1">
+                    <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800">Emissions Reduction</h4>
+                    <p className="text-gray-600">Advanced filtration systems capture 99.7% of particulate matter from our processes</p>
+                  </div>
+                </div>
+              </div>
+              
+              <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300">
+                Our Sustainability Report
+              </button>
+            </div>
+            
+            <div className="w-full md:w-1/2" data-aos="fade-left">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-green-100 p-6 rounded-2xl text-center">
+                  <div className="text-4xl font-bold text-green-700 mb-2">98%</div>
+                  <div className="text-green-800">Recycling Efficiency</div>
+                </div>
+                <div className="bg-green-100 p-6 rounded-2xl text-center">
+                  <div className="text-4xl font-bold text-green-700 mb-2">45%</div>
+                  <div className="text-green-800">Carbon Footprint Reduction</div>
+                </div>
+                <div className="bg-green-100 p-6 rounded-2xl text-center">
+                  <div className="text-4xl font-bold text-green-700 mb-2">12K+</div>
+                  <div className="text-green-800">Tons CO₂ Saved Yearly</div>
+                </div>
+                <div className="bg-green-100 p-6 rounded-2xl text-center">
+                  <div className="text-4xl font-bold text-green-700 mb-2">100%</div>
+                  <div className="text-green-800">Compliance with Regulations</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* CTA Section */}
+      <section className="py-20 bg-amber-600 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-black"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center" data-aos="zoom-in">
+            <h2 className="text-4xl font-bold text-white mb-6">Ready to Partner With Us?</h2>
+            <p className="text-amber-100 text-xl mb-10">
+              Join hundreds of satisfied clients who have experienced the Utkal Corporation difference in quality, service, and reliability.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <button className="bg-white text-amber-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+                Request a Quote
+              </button>
+              <button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-amber-600 font-bold py-3 px-8 rounded-lg transition-all duration-300">
+                Contact Sales
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-6 bg-gradient-to-b from-white to-gray-100">
-  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-    {/* Left Side - Contact Details */}
-    <div data-aos="fade-right">
-      <h2 className="text-4xl font-bold text-gray-800 mb-6">Contact Us</h2>
-
-      <div className="space-y-4 text-lg text-gray-600">
-        <p><strong>Email:</strong> info@utkalcorporation.com</p>
-        <p><strong>Phone:</strong> +91 9777098999</p><span className='ml-16'>+91 9777063999</span>
-        <p><strong>Address:</strong> Bhubaneswar, Odisha, India</p>
-      </div>
-
-      {/* Map Below Contact Info */}
-      <div className="mt-8 rounded-lg overflow-hidden shadow-lg" data-aos="zoom-in">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d412.66028536560367!2d85.75513660966763!3d20.244715835556402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a9f84571a633%3A0x600f47c59a3bcf8!2sUtkal%20Group%20of%20Companies!5e1!3m2!1sen!2sin!4v1743144349889!5m2!1sen!2sin"
-          width="100%"
-          height="300"
-          style={{ border: 0 }}
-          allowFullScreen={true}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Google Map"
-        ></iframe>
-      </div>
-    </div>
-
-    {/* Right Side - Contact Form */}
-    <div className="bg-white p-8 rounded-xl shadow-2xl" data-aos="fade-left">
-      <form className="space-y-6">
-        {/* Name */}
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            required
-          />
+      <section className="py-20 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16" data-aos="fade-up">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Have questions about our products or services? Our team is ready to assist you with all your metal recycling needs.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div data-aos="fade-right">
+              <div className="bg-white p-8 rounded-2xl shadow-lg h-full">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start">
+                    <div className="bg-amber-100 p-3 rounded-full mr-4">
+                      <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-800">Phone</h4>
+                      <p className="text-gray-600">+91 9777098999</p>
+                      <p className="text-gray-600">+91 9777063999</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="bg-amber-100 p-3 rounded-full mr-4">
+                      <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-800">Email</h4>
+                      <p className="text-gray-600">info@utkalcorporation.com</p>
+                      <p className="text-gray-600">sales@utkalcorporation.com</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="bg-amber-100 p-3 rounded-full mr-4">
+                      <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-800">Address</h4>
+                      <p className="text-gray-600">Bhubaneswar, Odisha, India</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-8 rounded-lg overflow-hidden shadow-lg">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d412.66028536560367!2d85.75513660966763!3d20.244715835556402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a9f84571a633%3A0x600f47c59a3bcf8!2sUtkal%20Group%20of%20Companies!5e1!3m2!1sen!2sin!4v1743144349889!5m2!1sen!2sin"
+                    width="100%"
+                    height="250"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Google Map"
+                    className="rounded-lg"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            
+            <div data-aos="fade-left">
+              <div className="bg-white p-8 rounded-2xl shadow-lg h-full">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
+                
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
+                      <input
+                        type="text"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
+                      <input
+                        type="text"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                        required
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                    <input
+                      type="email"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                    <input
+                      type="tel"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                    <textarea
+                      rows={5}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                      required
+                    ></textarea>
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300"
+                  >
+                    Send Message
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-
-        {/* Email */}
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-          <input
-            type="email"
-            placeholder="your@example.com"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            required
-          />
-        </div>
-
-        {/* Subject */}
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
-          <input
-            type="text"
-            placeholder="Subject"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-        </div>
-
-        {/* Message */}
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-          <textarea
-            placeholder="Your Message"
-            rows={5}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
-            required
-          ></textarea>
-        </div>
-
-        {/* Submit Button */}
-        <div className="text-center">
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md transition duration-300"
-          >
-            Send Message
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-
-      {/* Footer Section */}
-      <footer className="py-8 px-4 bg-gray-800 text-white text-center" data-aos="fade-up">
-        <p>&copy; 2025 Utkal Corporation Group. All rights reserved.</p>
-      </footer>
+      </section>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export function CTA() {
+export function CTAadmin() {
   return (
     <section className="py-16">
       <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl p-8 md:p-12">
