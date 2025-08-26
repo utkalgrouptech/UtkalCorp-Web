@@ -1,6 +1,7 @@
+
 import Link from "next/link"
 import { AboutHero } from "@/components/program/about-hero"
-import AboutContent  from "@/components/program/about-content" 
+import AboutContents  from "@/components/program/about-content" 
 import {WhyChooseUs } from "@/components/program/milestones"
 import { OurServices } from "@/components/program/facilities"
 import { Certifications } from "@/components/program/certifications" 
@@ -30,7 +31,7 @@ export default function AboutPage() {
             </svg>
             <span className="text-gray-700 font-medium">About Us</span>
           </div>
-<AboutContent />
+<AboutContents />
           <JourneyTimeline />
           <OurServices />
           <WhyChooseUs />
