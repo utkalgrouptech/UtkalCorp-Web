@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { AboutHero } from "@/components/program/about-hero"
-import { AboutContent } from "@/components/program/about-content" 
+import AboutContent  from "@/components/program/about-content" 
 import {WhyChooseUs } from "@/components/program/milestones"
 import { OurServices } from "@/components/program/facilities"
 import { Certifications } from "@/components/program/certifications" 
