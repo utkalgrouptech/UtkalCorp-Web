@@ -1,4 +1,4 @@
-export function TeamSection() {
+export default function TeamSection() {
   const team = [
     {
       name: "Leadership Team",

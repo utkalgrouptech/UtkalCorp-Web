@@ -1,4 +1,4 @@
-export function JourneyTimeline() {
+export default function JourneyTimeline() {
   return (
     <section className="py-16 bg-gray-50 rounded-xl mb-16">
       <div className="max-w-4xl mx-auto px-4">

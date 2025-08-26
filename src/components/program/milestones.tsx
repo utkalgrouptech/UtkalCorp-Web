@@ -1,4 +1,4 @@
-export function WhyChooseUs() {
+export default function WhyChooseUs() {
   const features = [
     {
       title: "Decade of Experience",

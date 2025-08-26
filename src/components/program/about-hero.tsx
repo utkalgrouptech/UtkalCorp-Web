@@ -1,6 +1,6 @@
 import { aboutbanner } from "@/asserts/home";
 
-export function AboutHero() {
+export default function AboutHero() {
     return (
       <section className="w-full relative h-[400px] md:h-[600px] overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10"></div>

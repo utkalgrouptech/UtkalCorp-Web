@@ -1,4 +1,4 @@
-export function OurServices() {
+export default function OurServices() {
   const services = [
     {
       title: "Metal Trading",
