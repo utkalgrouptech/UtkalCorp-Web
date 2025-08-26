@@ -1,13 +1,13 @@
 
 import Link from "next/link"
-import { AboutHero } from "@/components/program/about-hero"
+import  AboutHero  from "@/components/program/about-hero"
 import AboutContents  from "@/components/program/about-content" 
-import {WhyChooseUs } from "@/components/program/milestones"
-import { OurServices } from "@/components/program/facilities"
-import { Certifications } from "@/components/program/certifications" 
-import { CTA } from "@/components/program/cta"
-import { JourneyTimeline } from "@/components/program/journeyTimeline"
-import { TeamSection } from "@/components/program/leadership"
+import WhyChooseUs  from "@/components/program/milestones"
+import  OurServices  from "@/components/program/facilities"
+import  Certifications  from "@/components/program/certifications" 
+import  CTA  from "@/components/program/cta"
+import  JourneyTimeline  from "@/components/program/journeyTimeline"
+import  TeamSection  from "@/components/program/leadership"
 
 export default function AboutPage() {
   return (
