@@ -9,7 +9,7 @@ import { TeamSection } from "@/components/program/leadership"
 import { WhyChooseUs } from "@/components/program/milestones"
 import Link from "next/link"
 
-export default function AboutPage() {
+export function AboutPage() {
   return (
     <main className="min-h-screen">
       <AboutHero />
