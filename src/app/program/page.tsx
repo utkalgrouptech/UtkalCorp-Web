@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import { AboutHero } from "@/components/program/about-hero"
 import { AboutContentAdmin } from "@/components/program/about-content"
@@ -38,7 +39,7 @@ export default function AboutPage() {
   )
 }
 
-export function AboutContent() {
+export function ProgramPage() {
   return (
     <section className="py-12">
       <div className="max-w-4xl mx-auto">
