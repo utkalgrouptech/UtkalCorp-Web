@@ -1,9 +1,6 @@
 "use client"
-import Link from "next/link"
 import { AboutHero } from "@/components/program/about-hero"
-import { AboutContentAdmin } from "@/components/program/about-content"
-import { CertificationsAdmin } from "@/components/program/certifications"  
-import { CTAadmin } from "@/components/program/cta" 
+import Link from "next/link"
 
 export default function AboutPage() {
   return (
@@ -26,13 +23,13 @@ export default function AboutPage() {
             </svg>
             <span className="text-gray-700 font-medium">About Us</span>
           </div>
-          <AboutContentAdmin />
+          <ProgramPage />
           <JourneyTimeline />
           <OurServices />
           <WhyChooseUs />
-          <CertificationsAdmin />
+          <Certifications />
           <TeamSection />
-          <CTAadmin />
+          <CTA />
         </div>
       </div>
     </main>
