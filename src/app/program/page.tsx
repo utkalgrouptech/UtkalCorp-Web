@@ -1,17 +1,17 @@
-"use client"
-import { ProgramPage } from "@/components/program/about-content"
+import Link from "next/link"
 import { AboutHero } from "@/components/program/about-hero"
-import { Certifications } from "@/components/program/certifications"
-import { CTA } from "@/components/program/cta"
+import { AboutContent } from "@/components/program/about-content" 
+import {WhyChooseUs } from "@/components/program/milestones"
 import { OurServices } from "@/components/program/facilities"
+import { Certifications } from "@/components/program/certifications" 
+import { CTA } from "@/components/program/cta"
 import { JourneyTimeline } from "@/components/program/journeyTimeline"
 import { TeamSection } from "@/components/program/leadership"
-import { WhyChooseUs } from "@/components/program/milestones"
-import Link from "next/link"
 
-export function AboutPage() {
+export default function AboutPage() {
   return (
     <main className="min-h-screen">
+      {/* <Navbar /> */}
       <AboutHero />
       <div className="bg-white">
         <div className="container mx-auto px-4 py-8">
@@ -30,7 +30,7 @@ export function AboutPage() {
             </svg>
             <span className="text-gray-700 font-medium">About Us</span>
           </div>
-          <ProgramPage />
+<AboutContent />
           <JourneyTimeline />
           <OurServices />
           <WhyChooseUs />
@@ -39,8 +39,7 @@ export function AboutPage() {
           <CTA />
         </div>
       </div>
+      {/* <Footer /> */}
     </main>
   )
 }
-
-
