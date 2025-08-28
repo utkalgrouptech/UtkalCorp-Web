@@ -1,6 +1,6 @@
 import Link from "next/link"
 import  AboutHero from "@/components/program/about-hero"
-import AboutContents from "@/components/program/about-content"
+import AboutContents from "@/components/program/aboutcontent"
 import Certifications from "@/components/program/certifications"
 import CTA from "@/components/program/cta"
 import TeamSection from "@/components/program/leadership"
