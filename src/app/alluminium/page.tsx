@@ -146,7 +146,7 @@ const aluminumPurchaseItems = [
 
 ];
 const aluminumSalesItems = [
-  { title: "Aluminum Scrab", subtitle: "(Aluminium Scrap is a highly sought-after recyclable material known for its lightweight, corrosion-resistant properties and excellent conductivity. Sourced from a wide range of products including beverage cans, automotive parts, window frames, and industrial components, aluminium scrap is sorted and processed into clean, reusable material. It plays a crucial role in sustainable manufacturing as it retains its properties even after repeated recycling. With a high recovery rate and low energy requirements for reprocessing, aluminium scrap offers significant environmental and economic benefits, making it an essential raw material for the construction, automotive, aerospace, and packaging industries.)", imageUrl: Alluminum },
+  { title: "Aluminum Scrap", subtitle: "(Aluminium Scrap is a highly sought-after recyclable material known for its lightweight, corrosion-resistant properties and excellent conductivity. Sourced from a wide range of products including beverage cans, automotive parts, window frames, and industrial components, aluminium scrap is sorted and processed into clean, reusable material. It plays a crucial role in sustainable manufacturing as it retains its properties even after repeated recycling. With a high recovery rate and low energy requirements for reprocessing, aluminium scrap offers significant environmental and economic benefits, making it an essential raw material for the construction, automotive, aerospace, and packaging industries.)", imageUrl: Alluminum },
 
 ];
 

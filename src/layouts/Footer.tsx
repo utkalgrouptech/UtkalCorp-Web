@@ -43,11 +43,18 @@ const Footer = () => {
         {/* REGISTERED OFFICE */}
         <div className="w-full lg:w-1/5 border-l border-gray-300 pl-5">
           <h3 className="text-lg font-bold text-[#400000] mb-4">REGISTERED OFFICE</h3>
-          <div className="space-y-1 text-gray-700">
-            <p>Arya Surya Enclave,Fourth Floor,</p>
-            <p> Plot No- K5/475,Kalinga Vihar,</p>
-            <p>Bhuabneswar,Odisha, India-751019.</p>
-          </div>
+           <div className="text-gray-600 space-y-1">
+    <p>Arya Surya Enclave, Plot No- K5/475,</p>
+    <p> Fourth Floor,Kalinga Vihar, </p>
+    <p> Bhubaneswar,Dist- Khurda,</p>
+    <p>Odisha, India-751019. </p>
+  </div>
+
+  <div className="text-gray-600 space-y-1 mt-3">
+    <p>Corporate Office: 214, Second Floor,</p>
+    <p>Sector A, Pocket C, Vasant Kunj</p> 
+    <p>New Delhi 110070</p>
+  </div>
         </div>
 
         {/* FOR MORE DETAILS */}

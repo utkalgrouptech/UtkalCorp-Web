@@ -28,16 +28,23 @@ export function ContactInfo() {
       <div className="space-y-6">
         <div className="flex items-start">
           <MapPin className="w-6 h-6 text-yellow-600 mr-4 mt-1 flex-shrink-0" />
-          <div>
-            <h4 className="font-bold text-gray-800 mb-1">Address</h4>
-            <p className="text-gray-600">
-            <p>Arya Surya Enclave, Plot No- K5/475,</p>
-            <p>Khata No 95/937, Fourth Floor, Mouza-</p>
-            <p>Subudhi Pur, Kalinga Vihar, Patrapada,</p>
-            <p>Bhuabneswar, Dist- Khurda,</p>
-            <p>Odisha, India-751019.</p>
-            </p>
-          </div>
+<div>
+  <h4 className="font-bold text-gray-800 mb-1">Address</h4>
+
+  <div className="text-gray-600 space-y-1">
+    <p>Arya Surya Enclave, Plot No- K5/475,</p>
+    <p>Khata No 95/937, Fourth Floor, Mouza-</p>
+    <p>Subudhi Pur, Kalinga Vihar, Patrapada,</p>
+    <p>Bhubaneswar, Dist- Khurda,</p>
+    <p>Odisha, India-751019.</p>
+  </div>
+
+  <div className="text-gray-600 space-y-1 mt-3">
+    <p>Corporate Office: 214, Second Floor,</p>
+    <p>Sector A, Pocket C, Vasant Kunj</p> 
+    <p>New Delhi 110070</p>
+  </div>
+</div>
         </div>
 
         <div className="flex items-start">
