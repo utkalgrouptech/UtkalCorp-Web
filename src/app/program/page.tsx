@@ -364,7 +364,7 @@ export default function ProgramPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
                   <Link
-                    href="/contact-us"
+                    href="/contact"
                     className="px-8 py-3 bg-white text-yellow-600 font-bold rounded-full hover:bg-gray-100 transition-colors"
                   >
                     Contact Us
