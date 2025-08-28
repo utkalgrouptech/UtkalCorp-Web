@@ -1,13 +1,12 @@
-
 import Link from "next/link"
-import  AboutHero  from "@/components/program/about-hero"
-import AboutContents  from "@/components/program/about-content" 
-import WhyChooseUs  from "@/components/program/milestones"
-import  OurServices  from "@/components/program/facilities"
-import  Certifications  from "@/components/program/certifications" 
-import  CTA  from "@/components/program/cta"
-import  JourneyTimeline  from "@/components/program/journeyTimeline"
-import  TeamSection  from "@/components/program/leadership"
+import  AboutHero from "@/components/program/about-hero"
+import AboutContents from "@/components/program/about-content"
+import Certifications from "@/components/program/certifications"
+import CTA from "@/components/program/cta"
+import TeamSection from "@/components/program/leadership"
+import JourneyTimeline from "@/components/program/journeyTimeline"
+import WhyChooseUs from "@/components/program/milestones"
+
 
 export default function AboutPage() {
   return (
@@ -31,13 +30,12 @@ export default function AboutPage() {
             </svg>
             <span className="text-gray-700 font-medium">About Us</span>
           </div>
-<AboutContents />
-          <JourneyTimeline />
-          <OurServices />
-          <WhyChooseUs />
-          <Certifications />
-          <TeamSection />
-          <CTA />
+          <AboutContents/>
+          <JourneyTimeline/>
+          <WhyChooseUs/>
+          <TeamSection/>
+          <CTA/>
+          <Certifications/>
         </div>
       </div>
       {/* <Footer /> */}

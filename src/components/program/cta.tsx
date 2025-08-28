@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export function CTA() {
+export default function CTA() {
   return (
     <section className="py-16">
       <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl p-8 md:p-12">
@@ -13,7 +13,7 @@ export function CTA() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              href="/contact-us"
+              href="/contact"
               className="px-8 py-3 bg-white text-yellow-600 font-bold rounded-full hover:bg-gray-100 transition-colors"
             >
               Contact Us
