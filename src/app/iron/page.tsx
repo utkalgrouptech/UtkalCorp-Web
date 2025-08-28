@@ -26,7 +26,7 @@ export default function Home() {
             Leading provider of Iron Trading solutions with state-of-the-art technology and sustainable practices.
           </p>
           <Link
-            href="#contact"
+            href="/contact"
             className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg transition shadow-md"
           >
             Contact Us
@@ -56,7 +56,7 @@ export default function Home() {
       </section>
 
       {/* Purchase Section */}
-      <SectionWrapper id="purchase" title="Purchase" subtitle="Types of cable we process">
+      <SectionWrapper id="purchase" title="Metal We Provide" subtitle="Types of cable we process">
         {ironPurchaseItems .map((item, i) => (
           <CircleItem key={i} {...item} />
         ))}

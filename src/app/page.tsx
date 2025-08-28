@@ -88,7 +88,7 @@ export default function HomePage() {
               <div className="text-center text-white px-4" data-aos="fade-up" data-aos-delay="200">
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">Quality Metals</h1>
                 <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
-                  Premium copper, aluminum, and zinc products for industrial applications
+                  Premium copper, aluminum, and Iron products for industrial applications
                 </p>
                 <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
                   View Products
@@ -156,7 +156,7 @@ export default function HomePage() {
             <div className="w-full md:w-1/2" data-aos="fade-right">
               <div className="relative">
                 <img 
-                  src={Productimg4.src} 
+                  src="https://img500.exportersindia.com/product_images/bc-500/2021/11/7910010/copper-scrap-1636707358-6075149.jpeg" 
                   alt="About Utkal Corporation" 
                   className="rounded-2xl shadow-xl w-full"
                 />
@@ -170,7 +170,7 @@ export default function HomePage() {
             <div className="w-full md:w-1/2" data-aos="fade-left">
               <h2 className="text-4xl font-bold text-gray-800 mb-6">About Utkal Corporation</h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Utkal Corporation is one of India's leading non-ferrous metal Trading companies, with over two decades of expertise in delivering quality and sustainable solutions. We specialize in the recycling and processing of copper, aluminum, zinc, and other metals to serve various industries worldwide.
+                Utkal Corporation is one of India's leading non-ferrous metal Trading companies, with over two decades of expertise in delivering quality and sustainable solutions. We specialize in the recycling and processing of copper, aluminum, Iron, and other metals to serve various industries worldwide.
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 Our state-of-the-art facilities and commitment to environmental responsibility make us the preferred partner for businesses looking for reliable metal solutions with a reduced carbon footprint.
@@ -244,7 +244,7 @@ export default function HomePage() {
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Metal Recycling</h3>
                 <p className="text-gray-600 mb-4">
-                  Environmentally responsible recycling of copper, aluminum, zinc and other non-ferrous metals with advanced processing techniques.
+                  Environmentally responsible recycling of copper, aluminum, Iron and other non-ferrous metals with advanced processing techniques.
                 </p>
                 <a href="#" className="text-amber-600 font-semibold flex items-center hover:text-amber-700">
                   Learn More

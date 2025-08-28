@@ -39,7 +39,7 @@ export default function Home() {
       <section className="py-20 bg-white px-4">
         <div className="container mx-auto flex flex-col md:flex-row gap-12 items-center">
           <div className="md:w-1/2">
-            <h2 className="text-3xl font-bold mb-4">About Our Copper Recycling Plant</h2>
+            <h2 className="text-3xl font-bold mb-4">About Our Copper Trading</h2>
             <p className="mb-4 text-gray-700">
               Our state-of-the-art copper recycling plant is equipped with the latest technology to process various
               types of copper scrap efficiently and sustainably.
@@ -57,7 +57,7 @@ export default function Home() {
       </section>
 
       {/* Purchase Section */}
-      <SectionWrapper id="purchase" title="Purchase" subtitle="Types of cable we process">
+      <SectionWrapper id="purchase" title="Product We Serve" subtitle="Types of cable we Sale">
         {purchaseItems.map((item, i) => (
           <CircleItem key={i} {...item} imageUrl={item.imageUrl.src} />
         ))}
