@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function AboutPage() {
+export default function ProgramPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
