@@ -29,16 +29,6 @@ export function ContactMap() {
             Odisha HQ
           </button>
           <button
-            onClick={() => setActiveTab("plant")}
-            className={`px-4 py-2 rounded-md transition-colors ${
-              activeTab === "plant"
-                ? "bg-yellow-500 text-black font-bold"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-            }`}
-          >
-            Pune Plant
-          </button>
-          <button
             onClick={() => setActiveTab("delhi")}
             className={`px-4 py-2 rounded-md transition-colors ${
               activeTab === "delhi"
@@ -47,16 +37,6 @@ export function ContactMap() {
             }`}
           >
             Delhi Office
-          </button>
-          <button
-            onClick={() => setActiveTab("bangalore")}
-            className={`px-4 py-2 rounded-md transition-colors ${
-              activeTab === "bangalore"
-                ? "bg-yellow-500 text-black font-bold"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-            }`}
-          >
-            Bangalore Office
           </button>
         </div>
       </div>

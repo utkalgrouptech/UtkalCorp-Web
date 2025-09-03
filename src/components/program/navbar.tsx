@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { logo } from "@/asserts/header"
@@ -8,12 +8,38 @@ import { logo } from "@/asserts/header"
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+  const dropdownRefs = useRef<Record<string, HTMLDivElement | null>>({})
 
-  const handleMouseEnter = (name: string) => setActiveDropdown(name)
-  const handleMouseLeave = () => setActiveDropdown(null)
+  // Detect screen size to handle mobile/desktop differences
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 1024)
+    checkIsMobile()
+    window.addEventListener('resize', checkIsMobile)
+    return () => window.removeEventListener('resize', checkIsMobile)
+  }, [])
+
+  const handleMouseEnter = (name: string) => {
+    if (!isMobile) setActiveDropdown(name)
+  }
+
+  const handleMouseLeave = (name: string) => {
+    if (!isMobile) {
+      // Use a timeout to allow moving to the dropdown
+      setTimeout(() => {
+        // Check if mouse is actually outside both button and dropdown
+        const dropdownElement = dropdownRefs.current[name]
+        if (dropdownElement && !dropdownElement.matches(':hover')) {
+          setActiveDropdown(null)
+        }
+      }, 100)
+    }
+  }
 
   const toggleDropdown = (name: string) => {
-    setActiveDropdown(prev => (prev === name ? null : name))
+    if (isMobile) {
+      setActiveDropdown(prev => (prev === name ? null : name))
+    }
   }
 
   const closeMobileMenu = () => {
@@ -21,7 +47,8 @@ export function Navbar() {
     setActiveDropdown(null)
   }
 
-  const desktopMenus = [
+  // Unified menu structure
+  const menuItems = [
     {
       name: "business",
       label: "BUSINESS VERTICALS",
@@ -49,35 +76,6 @@ export function Navbar() {
     },
   ]
 
-  const mobileMenus = [
-    {
-      name: "mobile-business",
-      label: "BUSINESS VERTICALS",
-      items: [
-        { href: "/recycling", label: "Recycling" },
-        { href: "/manufacturing", label: "Manufacturing" },
-        { href: "/trading", label: "Trading" },
-      ],
-    },
-    {
-      name: "mobile-products",
-      label: "PRODUCTS",
-      items: [
-        { href: "/alluminium", label: "Aluminum" },
-        { href: "/services", label: "Copper" },
-        { href: "/iron", label: "Iron" },
-      ],
-    },
-    {
-      name: "mobile-media",
-      label: "MEDIA",
-      items: [
-        { href: "/pressreleases", label: "Press Releases" },
-        { href: "/news", label: "News" },
-      ],
-    },
-  ]
-
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,25 +95,33 @@ export function Navbar() {
               ABOUT US
             </Link>
 
-            {desktopMenus.map(({ name, label, items }) => (
+            {menuItems.map(({ name, label, items }) => (
               <div
-                className="relative"
+                className="relative group"
                 key={name}
                 onMouseEnter={() => handleMouseEnter(name)}
-                onMouseLeave={handleMouseLeave}
+                onMouseLeave={() => handleMouseLeave(name)}
               >
                 <button className="px-3 py-2 text-sm font-medium text-gray-900 hover:bg-yellow-100 rounded-md flex items-center gap-1 transition-colors">
                   {label}
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 {activeDropdown === name && (
-                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-xl z-50 animate-fade-in-down">
+                  <div 
+                    className="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-xl z-50 border border-gray-100"
+                    ref={el => {
+                      dropdownRefs.current[name] = el;
+                    }}
+                    onMouseEnter={() => handleMouseEnter(name)}
+                    onMouseLeave={() => handleMouseLeave(name)}
+                  >
                     <div className="py-1">
                       {items.map(({ href, label }) => (
                         <Link
-                          key={label}
+                          key={href}
                           href={href}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 transition-colors"
+                          onClick={() => setActiveDropdown(null)}
                         >
                           {label}
                         </Link>
@@ -145,6 +151,7 @@ export function Navbar() {
           <button
             className="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -163,20 +170,22 @@ export function Navbar() {
               ABOUT US
             </Link>
 
-            {mobileMenus.map(({ name, label, items }) => (
+            {menuItems.map(({ name, label, items }) => (
               <div key={name}>
                 <button
                   className="w-full flex justify-between items-center px-3 py-2 text-base font-medium text-gray-900 hover:bg-yellow-50 rounded-md"
                   onClick={() => toggleDropdown(name)}
                 >
                   {label}
-                  <ChevronDown className="h-5 w-5" />
+                  <ChevronDown 
+                    className={`h-5 w-5 transition-transform ${activeDropdown === name ? 'rotate-180' : ''}`} 
+                  />
                 </button>
                 {activeDropdown === name && (
-                  <div className="pl-6 mt-1 space-y-1">
+                  <div className="pl-6 mt-1 space-y-1 animate-fade-in">
                     {items.map(({ href, label }) => (
                       <Link
-                        key={label}
+                        key={href}
                         href={href}
                         onClick={closeMobileMenu}
                         className="block px-3 py-2 text-sm text-gray-700 hover:bg-yellow-50 rounded-md"

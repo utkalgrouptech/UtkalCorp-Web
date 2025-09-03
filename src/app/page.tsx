@@ -156,7 +156,7 @@ export default function HomePage() {
             <div className="w-full md:w-1/2" data-aos="fade-right">
               <div className="relative">
                 <img 
-                  src="https://img500.exportersindia.com/product_images/bc-500/2021/11/7910010/copper-scrap-1636707358-6075149.jpeg" 
+                  src="https://media.istockphoto.com/id/471968132/photo/closeup-of-copper-cable-being-rolled-up.jpg?s=612x612&w=0&k=20&c=7snK-x-Cnyx6PgPQyMJF9JvrldTWk_MtPj7Npvpt_qE=" 
                   alt="About Utkal Corporation" 
                   className="rounded-2xl shadow-xl w-full"
                 />
@@ -402,46 +402,52 @@ export default function HomePage() {
           <div className="flex justify-center mb-16" data-aos="zoom-in">
             <div className="relative w-full max-w-4xl h-96 bg-gray-800 rounded-2xl overflow-hidden shadow-xl">
               <img 
-                src="https://img.freepik.com/premium-vector/basic-earth-map-continents_78370-2988.jpg" 
+                src="https://img.freepik.com/free-vector/minimal-world-map-isolated-white-background-with-shadow_1017-42608.jpg" 
                 alt="World map" 
                 className="w-full h-full object-cover opacity-60"
               />
               
               {/* Animated location markers */}
-              <div className="absolute top-1/4 left-2/4 animate-pulse">
+              <div className="absolute top-1/4 left-1/3 animate-pulse">
                 <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
               </div>
-              <div className="absolute top-2/5 left-1/5 animate-pulse" style={{animationDelay: '0.7s'}}>
-                <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
-              </div>
-              <div className="absolute top-1/3 left-1/2 animate-pulse" style={{animationDelay: '1.4s'}}>
-                <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
-              </div>
-              <div className="absolute top-2/3 left-1/4 animate-pulse" style={{animationDelay: '2.1s'}}>
-                <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
-              </div>
-              <div className="absolute top-1/2 left-3/4 animate-pulse" style={{animationDelay: '2.8s'}}>
-                <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
-              </div>
+  <div className="absolute top-[40%] left-[18%] animate-pulse">
+    <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+  </div>
+
+  {/* South America */}
+  <div className="absolute top-[65%] left-[28%] animate-pulse" style={{ animationDelay: "0.7s" }}>
+    <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+  </div>
+
+  {/* Europe */}
+  <div className="absolute top-[32%] left-[50%] animate-pulse" style={{ animationDelay: "1.4s" }}>
+    <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+  </div>
+
+  {/* Asia (East) */}
+  <div className="absolute top-[45%] left-[75%] animate-pulse" style={{ animationDelay: "2.1s" }}>
+    <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+  </div>
             </div>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="fade-up">
             <div>
               <div className="text-3xl font-bold text-amber-500 mb-2">Asia</div>
-              <div className="text-gray-300">8 Countries</div>
+              <div className="text-gray-300">6 Countries</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-amber-500 mb-2">Europe</div>
-              <div className="text-gray-300">5 Countries</div>
+              <div className="text-gray-300">2 Countries</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-amber-500 mb-2">Middle East</div>
-              <div className="text-gray-300">3 Countries</div>
+              <div className="text-gray-300">4 Countries</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-amber-500 mb-2">Africa</div>
-              <div className="text-gray-300">1 Country</div>
+              <div className="text-gray-300">3 Country</div>
             </div>
           </div>
         </div>
