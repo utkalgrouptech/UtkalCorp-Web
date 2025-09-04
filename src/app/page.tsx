@@ -169,8 +169,8 @@ export default function HomePage() {
             
             <div className="w-full md:w-1/2" data-aos="fade-left">
               <h2 className="text-4xl font-bold text-gray-800 mb-6">About Utkal Corporation</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Utkal Corporation is one of India's leading non-ferrous metal Trading companies, with over two decades of expertise in delivering quality and sustainable solutions. We specialize in the recycling and processing of copper, aluminum, Iron, and other metals to serve various industries worldwide.
+              <p className="text-gray-600 mb-6 text-md leading-relaxed">
+                Utkal Corporation is one of India's leading non-ferrous metals Trading companies, with over two decades of expertise in delivering quality and sustainable solutions. We specialize in the recycling and processing of copper, aluminum, Iron, and other metals to serve various industries worldwide.
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 Our state-of-the-art facilities and commitment to environmental responsibility make us the preferred partner for businesses looking for reliable metal solutions with a reduced carbon footprint.

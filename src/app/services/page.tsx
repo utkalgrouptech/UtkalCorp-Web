@@ -41,8 +41,7 @@ export default function Home() {
           <div className="md:w-1/2">
             <h2 className="text-3xl font-bold mb-4">About Our Copper Trading</h2>
             <p className="mb-4 text-gray-700">
-              Our state-of-the-art copper recycling plant is equipped with the latest technology to process various
-              types of copper scrap efficiently and sustainably.
+              Our state-of-the-art copper recycling plant is equipped with the latest technology to process various types of copper scrap efficiently and sustainably.
             </p>
             <p className="text-gray-700">
               We have established ourselves as a trusted partner for businesses. Our team of experts ensures high-quality and safe recycling standards.
@@ -50,18 +49,18 @@ export default function Home() {
           </div>
           <div className="md:w-1/2">
             <div className="bg-gray-200 h-80 rounded-xl flex items-center justify-center shadow-md">
-              <span className="text-gray-500 text-lg"><img src={plant.src} alt="" /></span>
+              <span className="w-full h-full text-gray-500 text-lg"><img src={"https://www.krugergmbhco.com/wp-content/uploads/2023/05/nonferroustile.jpg"} alt="" className="w-full h-full" /></span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Purchase Section */}
-      <SectionWrapper id="purchase" title="Product We Serve" subtitle="Types of cable we Sale">
+      {/* <SectionWrapper id="purchase" title="Product We Serve" subtitle="Types of cable we Sale">
         {purchaseItems.map((item, i) => (
           <CircleItem key={i} {...item} imageUrl={item.imageUrl.src} />
         ))}
-      </SectionWrapper>
+      </SectionWrapper> */}
 
       {/* Sales Section - Updated to Image & Content Layout */}
       <section id="sales" className="py-20 bg-white px-4">
@@ -141,17 +140,17 @@ function SectionWrapper({
 }
 
 // Mock Data Arrays
-const purchaseItems = [
+const salesItems = [
   { title: "Copper Millberry​", subtitle: "(Copper Millberry Scrap:- Is unalloyed, uncoated & untinned copper wire & cable. It is also a type of unburnt copper wire.)", imageUrl:Productimg4  },
   { title: "Copper Birch Cliff", subtitle: "(Copper Birch Cliff: – Shall consist of miscellaneous, unalloyed copper scrap having a normal 96% copper content (minimum 94%) as determined by electroytic assay.)", imageUrl: Productimg2 },
   { title: "Copper Wire Scrap", subtitle: "(Copper wire scrap:- Shall consist of clean, untinned, uncoated, unalloyed copper wire and cable, not smaller than No. 16 B & S wire gauge, free of burnt wire which is brittle. Hydraulically briquetted copper subject to agreement. (google sell & parker) // It refers exclusively to bare, uncoated and unalloyed wire or cable – no thinner than 16 gauge in thickness.)", imageUrl: Productimg1 },
   { title: "Copper Punching Scrap", subtitle: "(Copper Punching Scrap:- Copper Punching scrap is an electrolytic quality pure copper scrap which are punched of copper sheet and copper plate.)", imageUrl: Productimg3 },
 ];
 
-const salesItems = [
-  { title: "Copper Millberry Scrap", subtitle: "(Copper Milberry Scrap is one of the highest quality grades of copper scrap available in the market, known for its exceptional purity of 99.9% or higher. This uncoated, unalloyed copper wire is bright, clean, and free from impurities such as insulation, paint, or oxidation, making it ideal for recycling and industrial use. Due to its superior conductivity and purity, Copper Milberry Scrap is widely used in the electrical, electronics, and manufacturing industries. Its high resale value and eco-friendly recycling potential make it a preferred choice for companies seeking reliable and sustainable raw materials.)", imageUrl: Productimg4 },
+// const salesItems = [
+//   { title: "Copper Millberry Scrap", subtitle: "(Copper Milberry Scrap is one of the highest quality grades of copper scrap available in the market, known for its exceptional purity of 99.9% or higher. This uncoated, unalloyed copper wire is bright, clean, and free from impurities such as insulation, paint, or oxidation, making it ideal for recycling and industrial use. Due to its superior conductivity and purity, Copper Milberry Scrap is widely used in the electrical, electronics, and manufacturing industries. Its high resale value and eco-friendly recycling potential make it a preferred choice for companies seeking reliable and sustainable raw materials.)", imageUrl: Productimg4 },
 
-];
+// ];
 
 const processSteps = [
   {

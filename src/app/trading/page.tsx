@@ -26,7 +26,7 @@ export default function TradingPage() {
       <AboutSection
         title="About Our Trading Network"
         text="We facilitate global trade of copper and aluminium scrap through our extensive network of trusted partners. Our trading solutions ensure fair pricing, reliable logistics, and seamless transactions."
-        imagePath={image3.src}
+        imagePath={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqB_VwMOcHJ6yBlaOWW9Kohd3MxiwXgSOQ_g&s"}
         stats={[
           { value: "35+", label: "Countries" },
           { value: "250+", label: "Trading Partners" },
@@ -46,9 +46,9 @@ export default function TradingPage() {
       <ImageCarousel
         images={[
           { src: image1.src, alt: "Global trading map" },
-          { src: image2.src, alt: "Shipping containers" },
+          { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-xcdMiOe9iP3KbxiaempoxjCw6wm3r2KDpw&s", alt: "Shipping containers" },
           { src: image3.src, alt: "Trading partners meeting" },
-          { src: image4.src, alt: "Material inspection" },
+          { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3B5c9Bv-iH9SVdw6txIKBnonbk-bF4lKNTgMlKW1-3dt8xVHU3iweRhadkLa2-9uiJSs&usqp=CAU", alt: "Material inspection" },
         ]}
         title="Our Global Presence"
       />

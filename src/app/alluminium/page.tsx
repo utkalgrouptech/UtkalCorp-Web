@@ -38,30 +38,32 @@ export default function Home() {
       {/* About Section */}
       <section className="py-20 bg-white px-4">
         <div className="container mx-auto flex flex-col md:flex-row gap-12 items-center">
-          <div className="md:w-1/2">
-            <h2 className="text-3xl font-bold mb-4">About Our Aluminium Trading </h2>
-            <p className="mb-4 text-gray-700">
-              Our state-of-the-art copper recycling plant is equipped with the latest technology to process various
-              types of Aluminium scrap efficiently and sustainably.
-            </p>
-            <p className="text-gray-700">
-              We have established ourselves as a trusted partner for businesses. Our team of experts ensures high-quality and safe recycling standards.
-            </p>
-          </div>
+<div className="md:w-1/2">
+  <h2 className="text-3xl font-bold mb-6 text-gray-900 text-left">
+    About Our Aluminium Trading
+  </h2>
+  <p className="mb-4 text-gray-700 text-justify leading-relaxed">
+    Our state-of-the-art copper recycling plant is equipped with the latest technology to process various types of Aluminium scrap efficiently and sustainably.
+  </p>
+  <p className="text-gray-700 text-justify leading-relaxed">
+We have established ourselves as a trusted partner for businesses. Our team of experts ensures high-quality and safe recycling standards.
+  </p>
+</div>
+
           <div className="md:w-1/2">
             <div className="bg-gray-200 h-80 rounded-xl flex items-center justify-center shadow-md">
-              <span className="text-gray-500 text-lg"><img src={plant.src} alt="" /></span>
+              <span className="w-full h-full text-gray-500 text-lg"><img src={"https://alumintrading.com/wp-content/uploads/2024/09/non-feurous.png"} alt="" /></span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Purchase Section */}
-      <SectionWrapper id="purchase" title="Product We Serve" subtitle="Types of cable we sale">
+      {/* <SectionWrapper id="purchase" title="Product We Serve" subtitle="Types of cable we sale">
         {aluminumPurchaseItems .map((item, i) => (
           <CircleItem key={i} {...item} imageUrl={item.imageUrl.src} />
         ))}
-      </SectionWrapper>
+      </SectionWrapper> */}
 
       {/* Sales Section - Updated to Image & Content Layout */}
       <section id="sales" className="py-20 bg-white px-4">

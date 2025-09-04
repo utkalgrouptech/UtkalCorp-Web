@@ -26,7 +26,7 @@ export default function ManufacturingPage() {
       <AboutSection
         title="About Our Manufacturing"
         text="We transform recycled copper and aluminium into high-quality products that meet rigorous industry standards. Our manufacturing processes combine sustainability with excellence to deliver superior results."
-        imagePath={m3.src}
+        imagePath={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqB_VwMOcHJ6yBlaOWW9Kohd3MxiwXgSOQ_g&s"}
         stats={[
           { value: "100%", label: "Recycled Materials" },
           { value: "12K", label: "Products Monthly" },
