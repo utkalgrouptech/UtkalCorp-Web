@@ -141,11 +141,28 @@ function SectionWrapper({
 
 // Mock Data Arrays
 const salesItems = [
-  { title: "Copper Millberry​", subtitle: "(Copper Millberry Scrap:- Is unalloyed, uncoated & untinned copper wire & cable. It is also a type of unburnt copper wire.)", imageUrl:Productimg4  },
-  { title: "Copper Birch Cliff", subtitle: "(Copper Birch Cliff: – Shall consist of miscellaneous, unalloyed copper scrap having a normal 96% copper content (minimum 94%) as determined by electroytic assay.)", imageUrl: Productimg2 },
-  { title: "Copper Wire Scrap", subtitle: "(Copper wire scrap:- Shall consist of clean, untinned, uncoated, unalloyed copper wire and cable, not smaller than No. 16 B & S wire gauge, free of burnt wire which is brittle. Hydraulically briquetted copper subject to agreement. (google sell & parker) // It refers exclusively to bare, uncoated and unalloyed wire or cable – no thinner than 16 gauge in thickness.)", imageUrl: Productimg1 },
-  { title: "Copper Punching Scrap", subtitle: "(Copper Punching Scrap:- Copper Punching scrap is an electrolytic quality pure copper scrap which are punched of copper sheet and copper plate.)", imageUrl: Productimg3 },
+  { 
+    title: "Copper Millberry​", 
+    subtitle: "Copper Millberry Scrap is unalloyed, uncoated, and untinned copper wire and cable. It comes mainly from electrical wires that are clean and free from impurities. Millberry is one of the purest forms of copper scrap, often with a copper content of 99% or higher. Because of its high conductivity, it is widely used in electrical applications and recycling industries.", 
+    imageUrl: Productimg4  
+  },
+  { 
+    title: "Copper Birch Cliff", 
+    subtitle: "Copper Birch Cliff Scrap consists of miscellaneous, unalloyed copper scrap materials. It usually contains around 96% copper content, with a minimum of 94% as determined by electrolytic assay. The scrap includes clean sheet copper, tubing, and various copper-based materials. It is an important raw material for smelting and refining industries.", 
+    imageUrl: Productimg2 
+  },
+  { 
+    title: "Copper Wire Scrap", 
+    subtitle: "Copper Wire Scrap consists of clean, untinned, uncoated, and unalloyed copper wires and cables. The wires should not be smaller than No. 16 B & S gauge, and must be free from burnt or brittle materials. This type of scrap is often hydraulically briquetted for compact handling and transport. Its excellent conductivity makes it ideal for reuse in the electrical and electronics industries.", 
+    imageUrl: Productimg1 
+  },
+  { 
+    title: "Copper Punching Scrap", 
+    subtitle: "Copper Punching Scrap is produced from the punching and cutting of copper sheets and copper plates. It is an electrolytic quality pure copper scrap, generally very clean and free from other metals. This type of scrap is commonly collected from manufacturing processes involving electrical parts, copper plates, and sheet metal works. Due to its high purity, it is a valuable raw material in copper recycling.", 
+    imageUrl: Productimg3 
+  },
 ];
+
 
 // const salesItems = [
 //   { title: "Copper Millberry Scrap", subtitle: "(Copper Milberry Scrap is one of the highest quality grades of copper scrap available in the market, known for its exceptional purity of 99.9% or higher. This uncoated, unalloyed copper wire is bright, clean, and free from impurities such as insulation, paint, or oxidation, making it ideal for recycling and industrial use. Due to its superior conductivity and purity, Copper Milberry Scrap is widely used in the electrical, electronics, and manufacturing industries. Its high resale value and eco-friendly recycling potential make it a preferred choice for companies seeking reliable and sustainable raw materials.)", imageUrl: Productimg4 },

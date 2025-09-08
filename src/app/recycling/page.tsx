@@ -49,7 +49,7 @@ export default function RecyclingPage() {
           { src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_LkkxmWHXiahvJ3oagOb0Fs9s-ghozdrkuw&s", alt: "Copper recycling process" },
           { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCG2BowgfgxR-0Ejw4eNG-jF_z6rJ72MysBA&s", alt: "Aluminium sorting facility" },
           { src: recycle3.src, alt: "Material recovery system" },
-          { src: recycle4.src, alt: "Finished recycled materials" },
+          { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb5njXx2LffC17uvFBRjUl6Q1VqBDzza1HEA&s", alt: "Finished recycled materials" },
         ]}
         title="Our Recycling Facilities"
       />
