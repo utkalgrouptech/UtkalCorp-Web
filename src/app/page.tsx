@@ -1,221 +1,189 @@
 "use client"
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import { Homeimg2, product2, product3, product4 } from '@/asserts/home';
 import Link from 'next/link';
-import { Productimg4 } from '@/asserts/Product';
 
 export default function HomePage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   useEffect(() => {
     AOS.init({ 
-      duration: 1000, 
+      duration: 1200,
       once: true,
       easing: 'ease-out-cubic'
     });
   }, []);
 
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    fade: true,
-    cssEase: 'linear'
-  };
+  const stats = [
+    { number: '25+', label: 'Years Excellence', suffix: '' },
+    { number: '17+', label: 'Global Countries', suffix: '' },
+    { number: '500+', label: 'Clients Worldwide', suffix: '' },
+    { number: '100K', label: 'Annual Processing', suffix: 'Tons' }
+  ];
 
-  const testimonialSettings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-        }
-      }
-    ]
-  };
+  const services = [
+    {
+      icon: '♻️',
+      title: 'Metal Recycling',
+      description: 'Sustainable recycling solutions for copper, aluminum, and ferrous metals with advanced processing technology.',
+      image: 'https://cdn.prod.website-files.com/653ed7060b01292cd4518d0e/67d86292c694db5ac8885078_RS_ImageBank_Recycling_12-p-2000.jpg'
+    },
+    {
+      icon: '🏭',
+      title: 'Metal Processing',
+      description: 'State-of-the-art refining and processing to deliver high-purity metal products meeting international standards.',
+      image: 'https://www.mtcgroup.in/images/heavy-mealting-scrap.jpg'
+    },
+    {
+      icon: '🌍',
+      title: 'Global Trading',
+      description: 'Comprehensive international trading network serving clients across 17+ countries with reliable supply chains.',
+      image: 'https://img.freepik.com/free-photo/global-logistics-transportation-network_23-2152005448.jpg?semt=ais_hybrid&w=740&q=80'
+    }
+  ];
+
+  const products = [
+    { name: 'Copper Products', image: product2.src, category: 'Industrial Grade' },
+    { name: 'Aluminum Products', image: product3.src, category: 'Various Alloys' },
+    { name: 'Iron Products', image: product4.src, category: 'High Purity' }
+  ];
 
   return (
     <div className="w-full overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative w-full h-screen">
-        <Slider {...sliderSettings} className="w-full h-full">
-          <div className="relative h-screen">
-            <img 
-              src={Homeimg2.src}
-              alt="Modern metal recycling facility" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-              <div className="text-center text-white px-4" data-aos="fade-up">
-                <h1 className="text-5xl md:text-7xl font-bold mb-6">Utkal Corporation</h1>
-                <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
-                  Leading the way in sustainable metal recycling and Trading industrial solutions
-                </p>
-                <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
-                  Explore Our Services
-                </button>
-              </div>
-            </div>
-          </div>
-          
-          <div className="relative h-screen">
-            <img 
-              src="https://images.unsplash.com/photo-1591955506264-3f5a6834570a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-              alt="Copper materials" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-              <div className="text-center text-white px-4" data-aos="fade-up" data-aos-delay="200">
-                <h1 className="text-5xl md:text-7xl font-bold mb-6">Quality Metals</h1>
-                <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
-                  Premium copper, aluminum, and Iron products for industrial applications
-                </p>
-                <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
-                  View Products
-                </button>
-              </div>
-            </div>
-          </div>
-          
-          <div className="relative h-screen">
-            <img 
-              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-              alt="Global business" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-              <div className="text-center text-white px-4" data-aos="fade-up" data-aos-delay="400">
-                <h1 className="text-5xl md:text-7xl font-bold mb-6">Global Reach</h1>
-                <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
-                  Serving clients across 17+ countries with excellence and reliability
-                </p>
-                <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
-                  Contact Us
-                </button>
-              </div>
-            </div>
-          </div>
-        </Slider>
+      {/* Enhanced Hero Section */}
+      <section className="relative w-full h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 overflow-hidden">
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute w-full h-full object-cover"
+          poster="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+        >
+          <source src="https://cdn.pixabay.com/video/2023/03/23/160456-806200017_large.mp4" type="video/mp4" />
+        </video>
         
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="relative z-20 h-full flex items-center justify-center text-center text-white px-4">
+          <div className="max-w-6xl mx-auto">
+            <div data-aos="fade-down" data-aos-delay="200">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-light mb-6 tracking-tight">
+                UTKAL
+                <span className="block text-4xl md:text-5xl lg:text-6xl font-normal mt-2 text-amber-400">CORPORATION</span>
+              </h1>
+            </div>
+            
+            <div data-aos="fade-up" data-aos-delay="400">
+              <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light tracking-wide">
+                Global Leaders in Sustainable Metal Solutions & Industrial Trading
+              </p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="600" className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button className="group bg-amber-500 hover:bg-amber-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-500 transform hover:scale-105 hover:shadow-2xl flex items-center">
+                <span>Explore Our Capabilities</span>
+                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </button>
+              
+              <button className="group border-2 border-white hover:bg-white hover:text-gray-900 text-white font-semibold py-4 px-8 rounded-full transition-all duration-500 transform hover:scale-105">
+                <span>View Our Products</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
           <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div className="p-6" data-aos="fade-up" data-aos-delay="100">
-              <div className="text-4xl md:text-5xl font-bold text-amber-600 mb-2">25+</div>
-              <div className="text-gray-700">Years Experience</div>
-            </div>
-            <div className="p-6" data-aos="fade-up" data-aos-delay="200">
-              <div className="text-4xl md:text-5xl font-bold text-amber-600 mb-2">17+</div>
-              <div className="text-gray-700">Countries Served</div>
-            </div>
-            <div className="p-6" data-aos="fade-up" data-aos-delay="300">
-              <div className="text-4xl md:text-5xl font-bold text-amber-600 mb-2">500+</div>
-              <div className="text-gray-700">Clients Worldwide</div>
-            </div>
-            <div className="p-6" data-aos="fade-up" data-aos-delay="400">
-              <div className="text-4xl md:text-5xl font-bold text-amber-600 mb-2">100K+</div>
-              <div className="text-gray-700">Tons Processed Yearly</div>
-            </div>
+      {/* Modern Stats Section */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-blue-50"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div 
+                key={index}
+                className="text-center group cursor-pointer"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <div className="relative inline-block mb-4">
+                  <div className="text-5xl md:text-6xl font-bold text-gray-800 group-hover:text-amber-600 transition-colors duration-500">
+                    {stat.number}
+                  </div>
+                  {stat.suffix && (
+                    <span className="text-2xl text-amber-600 font-semibold">{stat.suffix}</span>
+                  )}
+                </div>
+                <div className="text-gray-600 font-medium tracking-wide uppercase text-sm">
+                  {stat.label}
+                </div>
+                <div className="w-0 group-hover:w-16 h-0.5 bg-amber-500 mx-auto mt-4 transition-all duration-500"></div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-20 bg-white">
+      {/* About Section with Modern Design */}
+      <section className="py-20 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2" data-aos="fade-right">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right">
               <div className="relative">
                 <img 
-                  src="https://media.istockphoto.com/id/471968132/photo/closeup-of-copper-cable-being-rolled-up.jpg?s=612x612&w=0&k=20&c=7snK-x-Cnyx6PgPQyMJF9JvrldTWk_MtPj7Npvpt_qE=" 
-                  alt="About Utkal Corporation" 
-                  className="rounded-2xl shadow-xl w-full"
+                  src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Advanced Metal Processing"
+                  className="rounded-2xl shadow-2xl w-full"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-amber-500 text-white p-6 rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="600">
+                <div className="absolute -bottom-6 -right-6 bg-amber-500 text-white p-8 rounded-2xl shadow-xl" data-aos="zoom-in" data-aos-delay="600">
                   <div className="text-3xl font-bold">25+</div>
-                  <div className="text-sm">Years of Excellence</div>
+                  <div className="text-sm font-semibold">Years of Excellence</div>
                 </div>
               </div>
             </div>
             
-            <div className="w-full md:w-1/2" data-aos="fade-left">
-              <h2 className="text-4xl font-bold text-gray-800 mb-6">About Utkal Corporation</h2>
-              <p className="text-gray-600 mb-6 text-md leading-relaxed">
-                Utkal Corporation is one of India's leading non-ferrous metals Trading companies, with over two decades of expertise in delivering quality and sustainable solutions. We specialize in the recycling and processing of copper, aluminum, Iron, and other metals to serve various industries worldwide.
-              </p>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Our state-of-the-art facilities and commitment to environmental responsibility make us the preferred partner for businesses looking for reliable metal solutions with a reduced carbon footprint.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                <div className="flex items-center">
-                  <div className="bg-amber-100 p-3 rounded-full mr-4">
-                    <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                    </svg>
-                  </div>
-                  <span className="text-gray-700 font-medium">Quality Certified</span>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="bg-amber-100 p-3 rounded-full mr-4">
-                    <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-                    </svg>
-                  </div>
-                  <span className="text-gray-700 font-medium">Global Export</span>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="bg-amber-100 p-3 rounded-full mr-4">
-                    <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                    </svg>
-                  </div>
-                  <span className="text-gray-700 font-medium">Fast Delivery</span>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="bg-amber-100 p-3 rounded-full mr-4">
-                    <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
-                  </div>
-                  <span className="text-gray-700 font-medium">Eco-Friendly</span>
-                </div>
+            <div data-aos="fade-left">
+              <div className="inline-block bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                ABOUT OUR LEGACY
               </div>
+              <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-8 leading-tight">
+                Pioneering Sustainable<br />
+                <span className="font-semibold text-amber-600">Metal Solutions</span>
+              </h2>
               
-              <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
-                Learn More About Us
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                Utkal Corporation stands at the forefront of India's non-ferrous metals industry, 
+                delivering exceptional quality and sustainable trading solutions for over two decades. 
+                Our commitment to innovation and environmental responsibility drives our global success.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                {['Quality Certified', 'Global Export', 'Advanced Logistics', 'Eco-Friendly'].map((item, index) => (
+                  <div key={index} className="flex items-center group">
+                    <div className="bg-amber-500 p-2 rounded-lg mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-6 h-6 flex items-center justify-center text-white font-bold">✓</div>
+                    </div>
+                    <span className="text-gray-700 font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <button className="group bg-gray-800 hover:bg-amber-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-500 transform hover:scale-105 flex items-center">
+                <span>Discover Our Story</span>
+                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
               </button>
             </div>
           </div>
@@ -223,573 +191,179 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We provide comprehensive metal recycling and processing services with a focus on quality, sustainability, and customer satisfaction.
-            </p>
+            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              OUR SERVICES
+            </div>
+            <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-6">
+              Comprehensive <span className="font-semibold text-amber-600">Metal Solutions</span>
+            </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src="https://cdn.prod.website-files.com/653ed7060b01292cd4518d0e/67d86292c694db5ac8885078_RS_ImageBank_Recycling_12-p-2000.jpg" 
-                  alt="Metal Recycling" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
+          <div className="grid md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div 
+                key={index}
+                className="group relative bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                data-aos="fade-up"
+                data-aos-delay={index * 200}
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute top-6 left-6 bg-amber-500 text-white p-4 rounded-xl text-2xl">
+                    {service.icon}
+                  </div>
+                </div>
+                
+                <div className="p-8">
+                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">{service.title}</h3>
+                  <p className="text-gray-600 leading-relaxed mb-6">{service.description}</p>
+                  
+                  <button className="group flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors duration-300">
+                    <span>Learn More</span>
+                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                  </button>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">Metal Recycling</h3>
-                <p className="text-gray-600 mb-4">
-                  Environmentally responsible recycling of copper, aluminum, Iron and other non-ferrous metals with advanced processing techniques.
-                </p>
-                <a href="#" className="text-amber-600 font-semibold flex items-center hover:text-amber-700">
-                  Learn More
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src="https://www.mtcgroup.in/images/heavy-mealting-scrap.jpg" 
-                  alt="Metal Processing" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">Metal Trading</h3>
-                <p className="text-gray-600 mb-4">
-                  Advanced refining and processing to produce high-purity metal products meeting international quality standards.
-                </p>
-                <a href="#" className="text-amber-600 font-semibold flex items-center hover:text-amber-700">
-                  Learn More
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="500">
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src="https://img.freepik.com/free-photo/global-logistics-transportation-network_23-2152005448.jpg?semt=ais_hybrid&w=740&q=80" 
-                  alt="Global Distribution" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">Global Distribution</h3>
-                <p className="text-gray-600 mb-4">
-                  Efficient logistics and supply chain management to deliver products to clients across 17+ countries worldwide.
-                </p>
-                <a href="#" className="text-amber-600 font-semibold flex items-center hover:text-amber-700">
-                  Learn More
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Products Section */}
-      <section className="py-20 bg-white">
+      {/* Products Showcase */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Products</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We offer a wide range of high-quality metal products that cater to various industrial applications and requirements.
-            </p>
+            <div className="inline-block bg-amber-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              OUR PRODUCTS
+            </div>
+            <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
+              Premium <span className="font-semibold text-amber-400">Metal Products</span>
+            </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg" data-aos="flip-left" data-aos-delay="100">
-              <img 
-                src={product2.src}
-                alt="Copper Products" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                <div className="p-6 text-white">
-                  <h3 className="text-2xl font-bold mb-2">Copper Products</h3>
-                  <p className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    High-quality copper scrap, cathodes, and processed materials
-                  </p>
-                  <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 transform translate-y-8 group-hover:translate-y-0">
-                    Explore
-                  </button>
+          <div className="grid md:grid-cols-3 gap-8">
+            {products.map((product, index) => (
+              <div 
+                key={index}
+                className="group relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-amber-400/50 transition-all duration-500"
+                data-aos="zoom-in"
+                data-aos-delay={index * 200}
+              >
+                <div className="relative h-80 overflow-hidden">
+                  <img 
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="absolute bottom-6 left-6 right-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                    <div className="bg-amber-500 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-2">
+                      {product.category}
+                    </div>
+                    <h3 className="text-2xl font-bold text-white">{product.name}</h3>
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg" data-aos="flip-left" data-aos-delay="300">
-              <img 
-                src={product3.src}
-                alt="Aluminum Products" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                <div className="p-6 text-white">
-                  <h3 className="text-2xl font-bold mb-2">Aluminum Products</h3>
-                  <p className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    Various grades of aluminum scrap and processed aluminum materials
-                  </p>
-                  <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 transform translate-y-8 group-hover:translate-y-0">
-                    Explore
-                  </button>
-                </div>
-              </div>
-            </div>
-            
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg" data-aos="flip-left" data-aos-delay="500">
-              <img 
-                src={product4.src} 
-                alt="Zinc Products" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                <div className="p-6 text-white">
-                  <h3 className="text-2xl font-bold mb-2">Iron Products</h3>
-                  <p className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    High-purity Iron materials for industrial applications
-                  </p>
-                  <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 transform translate-y-8 group-hover:translate-y-0">
-                    Explore
-                  </button>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           
           <div className="text-center mt-12" data-aos="fade-up">
             <Link href="/products">
-            <button className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300">
-               View All Products
-            </button>
+              <button className="group bg-transparent border-2 border-white hover:bg-white text-white hover:text-gray-900 font-semibold py-4 px-8 rounded-full transition-all duration-500 transform hover:scale-105 flex items-center mx-auto">
+                <span>Explore All Products</span>
+                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </button>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Global Presence Section */}
-      <section className="py-20 bg-gray-900 text-white relative">
-        <div className="absolute inset-0 opacity-10">
-          <img 
-            src="https://images.unsplash.com/photo-1534533983688-c7b8e13fd3b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-            alt="World map pattern" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-4xl font-bold mb-4">Global Presence</h2>
-            <p className="max-w-2xl mx-auto text-gray-300">
-              Serving clients across the globe with excellence and reliability for over two decades
-            </p>
-          </div>
-          
-          <div className="flex justify-center mb-16" data-aos="zoom-in">
-            <div className="relative w-full max-w-4xl h-96 bg-gray-800 rounded-2xl overflow-hidden shadow-xl">
-              <img 
-                src="https://img.freepik.com/free-vector/minimal-world-map-isolated-white-background-with-shadow_1017-42608.jpg" 
-                alt="World map" 
-                className="w-full h-full object-cover opacity-60"
-              />
-              
-              {/* Animated location markers */}
-              <div className="absolute top-1/4 left-1/3 animate-pulse">
-                <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
-              </div>
-  <div className="absolute top-[40%] left-[18%] animate-pulse">
-    <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
-  </div>
-
-  {/* South America */}
-  <div className="absolute top-[65%] left-[28%] animate-pulse" style={{ animationDelay: "0.7s" }}>
-    <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
-  </div>
-
-  {/* Europe */}
-  <div className="absolute top-[32%] left-[50%] animate-pulse" style={{ animationDelay: "1.4s" }}>
-    <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
-  </div>
-
-  {/* Asia (East) */}
-  <div className="absolute top-[45%] left-[75%] animate-pulse" style={{ animationDelay: "2.1s" }}>
-    <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
-  </div>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="fade-up">
-            <div>
-              <div className="text-3xl font-bold text-amber-500 mb-2">Asia</div>
-              <div className="text-gray-300">6 Countries</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-amber-500 mb-2">Europe</div>
-              <div className="text-gray-300">2 Countries</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-amber-500 mb-2">Middle East</div>
-              <div className="text-gray-300">4 Countries</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-amber-500 mb-2">Africa</div>
-              <div className="text-gray-300">3 Country</div>
-            </div>
-          </div>
-        </div>
-      </section>
-            {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Global Presence */}
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Hear from our satisfied clients across the globe who have experienced our exceptional service and quality products.
-            </p>
+            <div className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              GLOBAL REACH
+            </div>
+            <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-6">
+              Worldwide <span className="font-semibold text-amber-600">Presence</span>
+            </h2>
           </div>
-          
-          <Slider {...testimonialSettings}>
-            <div className="px-4">
-              <div className="bg-white p-8 rounded-2xl shadow-lg h-full" data-aos="flip-left" data-aos-delay="100">
-                <div className="flex items-center mb-4">
-                  <div className="text-amber-500 text-2xl">★★★★★</div>
-                </div>
-                <p className="text-gray-600 italic mb-6">
-                  "Utkal Corporation has been our trusted partner for over 5 years. Their consistent quality and reliable delivery have helped our manufacturing process tremendously."
-                </p>
-                <div className="flex items-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                    alt="Client" 
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <div className="font-bold text-gray-800">Rajesh Sharma</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="px-4">
-              <div className="bg-white p-8 rounded-2xl shadow-lg h-full" data-aos="flip-left" data-aos-delay="300">
-                <div className="flex items-center mb-4">
-                  <div className="text-amber-500 text-2xl">★★★★★</div>
-                </div>
-                <p className="text-gray-600 italic mb-6">
-                  "The quality of copper products from Utkal Corporation exceeds international standards. Their commitment to sustainability aligns with our company values."
-                </p>
-                <div className="flex items-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
-                    alt="Client" 
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <div className="font-bold text-gray-800">Sarah Johnson</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="px-4">
-              <div className="bg-white p-8 rounded-2xl shadow-lg h-full" data-aos="flip-left" data-aos-delay="500">
-                <div className="flex items-center mb-4">
-                  <div className="text-amber-500 text-2xl">★★★★☆</div>
-                </div>
-                <p className="text-gray-600 italic mb-6">
-                  "We've been importing aluminum from Utkal Corporation for three years now. Their logistics support and documentation are impeccable, making international trade seamless."
-                </p>
-                <div className="flex items-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                    alt="Client" 
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <div className="font-bold text-gray-800">David Müller</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="px-4">
-              <div className="bg-white p-8 rounded-2xl shadow-lg h-full" data-aos="flip-left" data-aos-delay="700">
-                <div className="flex items-center mb-4">
-                  <div className="text-amber-500 text-2xl">★★★★★</div>
-                </div>
-                <p className="text-gray-600 italic mb-6">
-                  "Their technical support team helped us optimize our recycling process, resulting in 15% higher efficiency. A true partnership approach to business."
-                </p>
-                <div className="flex items-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                    alt="Client" 
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <div className="font-bold text-gray-800">Michael Chen</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Slider>
-        </div>
-      </section>
 
-      {/* Sustainability Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2" data-aos="fade-right">
-              <h2 className="text-4xl font-bold text-gray-800 mb-6">Commitment to Sustainability</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                At Utkal Corporation, we believe that responsible metal recycling is essential for a sustainable future. Our processes are designed to minimize environmental impact while maximizing resource recovery.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start">
-                  <div className="bg-green-100 p-2 rounded-full mr-4 mt-1">
-                    <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800">Energy Efficiency</h4>
-                    <p className="text-gray-600">Our facilities use 30% less energy than industry averages through innovative technology</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="bg-green-100 p-2 rounded-full mr-4 mt-1">
-                    <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800">Water Recycling</h4>
-                    <p className="text-gray-600">Closed-loop water systems reduce consumption by over 80% compared to traditional methods</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="bg-green-100 p-2 rounded-full mr-4 mt-1">
-                    <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800">Emissions Reduction</h4>
-                    <p className="text-gray-600">Advanced filtration systems capture 99.7% of particulate matter from our processes</p>
-                  </div>
-                </div>
-              </div>
-              
-              <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300">
-                Our Sustainability Report
-              </button>
-            </div>
+          <div className="relative h-96 bg-gradient-to-br from-blue-50 to-green-50 rounded-3xl overflow-hidden shadow-2xl" data-aos="zoom-in">
+            <img 
+              src="https://img.freepik.com/free-vector/world-map-blue-background_1017-3115.jpg?w=2000&t=st=1701234567~exp=1701235167~hmac=abc123"
+              alt="Global Presence"
+              className="w-full h-full object-cover opacity-40"
+            />
             
-            <div className="w-full md:w-1/2" data-aos="fade-left">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-green-100 p-6 rounded-2xl text-center">
-                  <div className="text-4xl font-bold text-green-700 mb-2">98%</div>
-                  <div className="text-green-800">Recycling Efficiency</div>
-                </div>
-                <div className="bg-green-100 p-6 rounded-2xl text-center">
-                  <div className="text-4xl font-bold text-green-700 mb-2">45%</div>
-                  <div className="text-green-800">Carbon Footprint Reduction</div>
-                </div>
-                <div className="bg-green-100 p-6 rounded-2xl text-center">
-                  <div className="text-4xl font-bold text-green-700 mb-2">12K+</div>
-                  <div className="text-green-800">Tons CO₂ Saved Yearly</div>
-                </div>
-                <div className="bg-green-100 p-6 rounded-2xl text-center">
-                  <div className="text-4xl font-bold text-green-700 mb-2">100%</div>
-                  <div className="text-green-800">Compliance with Regulations</div>
-                </div>
+            {/* Animated Markers */}
+            {[
+              { top: '30%', left: '45%', region: 'Europe' },
+              { top: '40%', left: '75%', region: 'Asia' },
+              { top: '60%', left: '25%', region: 'South America' },
+              { top: '35%', left: '55%', region: 'Middle East' }
+            ].map((marker, index) => (
+              <div
+                key={index}
+                className={`absolute w-8 h-8 bg-amber-500 rounded-full border-4 border-white shadow-lg animate-pulse`}
+                style={{ top: marker.top, left: marker.left, animationDelay: `${index * 0.5}s` }}
+              ></div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+            {[
+              { region: 'Asia', countries: '6 Countries', color: 'text-blue-600' },
+              { region: 'Europe', countries: '4 Countries', color: 'text-green-600' },
+              { region: 'Middle East', countries: '4 Countries', color: 'text-amber-600' },
+              { region: 'Africa', countries: '3 Countries', color: 'text-purple-600' }
+            ].map((item, index) => (
+              <div key={index} className="text-center" data-aos="fade-up" data-aos-delay={index * 100}>
+                <div className={`text-3xl font-bold ${item.color} mb-2`}>{item.region}</div>
+                <div className="text-gray-600 font-semibold">{item.countries}</div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-amber-600 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-black"></div>
-        </div>
-        
+      <section className="py-20 bg-gradient-to-r from-amber-500 to-amber-600 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center" data-aos="zoom-in">
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to Partner With Us?</h2>
-            <p className="text-amber-100 text-xl mb-10">
-              Join hundreds of satisfied clients who have experienced the Utkal Corporation difference in quality, service, and reliability.
+          <div className="max-w-4xl mx-auto text-center" data-aos="zoom-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+              Ready to Transform Your Metal Supply Chain?
+            </h2>
+            <p className="text-amber-100 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+              Join global industry leaders who trust Utkal Corporation for premium metal solutions and sustainable partnerships.
             </p>
             
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-white text-amber-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
-                Request a Quote
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <button className="group bg-white text-amber-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-full transition-all duration-500 transform hover:scale-105 shadow-2xl flex items-center">
+                <span>Request Consultation</span>
+                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
               </button>
-              <button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-amber-600 font-bold py-3 px-8 rounded-lg transition-all duration-300">
-                Contact Sales
+              
+              <button className="group border-2 border-white text-white hover:bg-white hover:text-amber-600 font-bold py-4 px-8 rounded-full transition-all duration-500 transform hover:scale-105">
+                <span>Contact Our Team</span>
               </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="py-20 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Have questions about our products or services? Our team is ready to assist you with all your metal recycling needs.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div data-aos="fade-right">
-              <div className="bg-white p-8 rounded-2xl shadow-lg h-full">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
-                
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="bg-amber-100 p-3 rounded-full mr-4">
-                      <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-800">Phone</h4>
-                      <p className="text-gray-600">+91 9777098999</p>
-                      <p className="text-gray-600">+91 9777063999</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="bg-amber-100 p-3 rounded-full mr-4">
-                      <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-800">Email</h4>
-                      <p className="text-gray-600">info@utkalcorporation.com</p>
-                      <p className="text-gray-600">sales@utkalcorporation.com</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="bg-amber-100 p-3 rounded-full mr-4">
-                      <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-800">Address</h4>
-                      <p className="text-gray-600">Bhubaneswar, Odisha, India</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-8 rounded-lg overflow-hidden shadow-lg">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d412.66028536560367!2d85.75513660966763!3d20.244715835556402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a9f84571a633%3A0x600f47c59a3bcf8!2sUtkal%20Group%20of%20Companies!5e1!3m2!1sen!2sin!4v1743144349889!5m2!1sen!2sin"
-                    width="100%"
-                    height="250"
-                    style={{ border: 0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Google Map"
-                    className="rounded-lg"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-            
-            <div data-aos="fade-left">
-              <div className="bg-white p-8 rounded-2xl shadow-lg h-full">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
-                
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                        required
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
-                    <input
-                      type="email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
-                    <input
-                      type="tel"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
-                    <textarea
-                      rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                      required
-                    ></textarea>
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              </div>
             </div>
           </div>
         </div>
