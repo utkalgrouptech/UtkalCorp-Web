@@ -80,7 +80,7 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="bg-gray-100 text-center py-5 text-sm font-semibold flex flex-col md:flex-row items-center justify-between px-6">
         <p className="text-gray-700">
-          COPYRIGHT © 2025 Utkal Corporation  PVT LTD. ALL RIGHTS RESERVED.
+          COPYRIGHT © 2025 UTKAL CORPORATION PVT LTD. ALL RIGHTS RESERVED.
         </p>
         <p className="flex items-center gap-2 text-gray-700 mt-3 md:mt-0">
           DESIGNED BY <span className="text-red-600 text-lg">🧠</span> Utkal Corporation

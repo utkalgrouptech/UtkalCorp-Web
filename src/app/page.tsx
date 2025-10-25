@@ -54,7 +54,7 @@ export default function HomePage() {
     <div className="w-full overflow-hidden">
       {/* Enhanced Hero Section */}
       <section className="relative w-full h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 overflow-hidden">
-        <div className="absolute inset-0 bg-black/40 z-10"></div>
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
         <video
           ref={videoRef}
           autoPlay
@@ -62,36 +62,35 @@ export default function HomePage() {
           loop
           playsInline
           className="absolute w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          poster="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
         >
-          <source src="https://cdn.pixabay.com/video/2023/03/23/160456-806200017_large.mp4" type="video/mp4" />
+          <source src="https://videos.pexels.com/video-files/5441304/5441304-uhd_3840_2160_30fps.mp4" type="video/mp4" />
         </video>
         
         <div className="relative z-20 h-full flex items-center justify-center text-center text-white px-4">
           <div className="max-w-6xl mx-auto">
             <div data-aos="fade-down" data-aos-delay="200">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-light mb-6 tracking-tight">
-                UTKAL
-                <span className="block text-4xl md:text-5xl lg:text-6xl font-normal mt-2 text-amber-400">CORPORATION</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+                Turning Scrap Into <span className="text-blue-300">Global Opportunity</span>
               </h1>
             </div>
             
             <div data-aos="fade-up" data-aos-delay="400">
-              <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light tracking-wide">
-                Global Leaders in Sustainable Metal Solutions & Industrial Trading
+              <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light tracking-wide text-gray-200">
+                Trusted Metal Recycling & Export Partner Worldwide
               </p>
             </div>
 
             <div data-aos="fade-up" data-aos-delay="600" className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="group bg-amber-500 hover:bg-amber-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-500 transform hover:scale-105 hover:shadow-2xl flex items-center">
-                <span>Explore Our Capabilities</span>
+              <button className="group bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-500 transform hover:scale-105 hover:shadow-2xl flex items-center">
+                <span>Sell Scrap</span>
                 <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>
               </button>
               
-              <button className="group border-2 border-white hover:bg-white hover:text-gray-900 text-white font-semibold py-4 px-8 rounded-full transition-all duration-500 transform hover:scale-105">
-                <span>View Our Products</span>
+              <button className="group border-2 border-white hover:bg-white hover:text-gray-900 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-500 transform hover:scale-105">
+                <span>Explore Products</span>
               </button>
             </div>
           </div>

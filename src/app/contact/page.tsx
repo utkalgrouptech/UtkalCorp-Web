@@ -27,7 +27,7 @@ export default function ContactPage() {
             <span className="text-gray-700 font-medium">Contact Us</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 main-container">
+          <div className= "main-container">
             <ContactInfo />
             <ContactForm />
           </div>
