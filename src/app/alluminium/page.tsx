@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link";
-import { CircleItem } from "@/components/services/circle-item";
+
 import { Allbanner, Alluminum, plant } from "@/asserts/Product";
 
 export default function Home() {
