@@ -1,44 +1,58 @@
-"use client"
-
-import { useState } from "react"
-import Image from "next/image"
-
-interface CircleItemProps {
-  title: string
-  subtitle: string
-  imageUrl: string
-  highlighted?: boolean
-}
-
-export function CircleItem({ title, subtitle, imageUrl, highlighted = false }: CircleItemProps) {
-  const [isHovered, setIsHovered] = useState(false)
-
-  return (
-    <div className="flex flex-col items-center text-center">
-      <div
-        className={`relative overflow-hidden transition-all duration-300 ease-in-out ${isHovered ? "scale-105" : ""}`}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div
-          className={`
-            w-48 h-48 mx-auto rounded-full overflow-hidden border-4 
-            ${highlighted ? "border-yellow-500" : "border-gray-300"}
-            ${isHovered ? "rounded-full shadow-lg" : ""}
-            transition-all duration-300
-          `}
-        >
-          <Image
-            src={imageUrl || "/placeholder.svg"}
-            alt={title}
-            width={200}
-            height={200}
-            className="w-full h-full object-cover"
-          />
+"use client";
+import { pic4 } from "@/asserts/Product";
+import { motion } from "framer-motion";
+const text = "SERVICES";
+export function ContactHero() {
+    return (
+      <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
+  
+        {/* Hero Image */}
+        <div className="absolute inset-0">
+          <div
+            className="h-full w-full bg-cover bg-center"
+            style={{ backgroundImage: `url(${pic4.src})` }}
+          ></div>
         </div>
-      </div>
-      <h3 className={`mt-4 font-bold text-lg ${highlighted ? "text-yellow-500" : ""}`}>{title}</h3>
-      <p className="text-gray-600">{subtitle}</p>
-    </div>
-  )
-}
+  
+        {/* Content */}
+        <div className="relative z-20 h-full flex items-center justify-center">
+          <div className="text-center">
+           {/* Letter Animation */}
+          <h1 className="text-5xl md:text-7xl font-bold text-white tracking-wider mb-4">
+            {text.split("").map((char, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: index * 0.08,
+                  duration: 0.5,
+                  ease: "easeOut",
+                }}
+                className="inline-block"
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+          </h1>
+
+          {/* Paragraph Animation */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: 1,
+              duration: 0.8,
+            }}
+            className="text-xl text-white max-w-3xl mx-auto"
+          >
+            Discover our range of services and how we can help your business grow.
+          </motion.p>
+
+          </div>
+        </div>
+      </section>
+    )
+  }
+  

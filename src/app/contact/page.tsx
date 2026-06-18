@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ContactHero } from "@/components/contact/contact-hero"
 import { ContactInfo } from "@/components/contact/contact-info"
-import { ContactForm } from "@/components/contact/contact-form" 
+
 import { ContactMap } from "@/components/contact/contact-map"
 
 export default function ContactPage() {
@@ -29,7 +29,7 @@ export default function ContactPage() {
 
           <div className= "main-container">
             <ContactInfo />
-            <ContactForm />
+            
           </div>
           <ContactMap />
         </div>
