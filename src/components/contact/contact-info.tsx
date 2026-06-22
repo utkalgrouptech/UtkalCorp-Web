@@ -47,7 +47,7 @@ export function ContactInfo() {
       icon: Phone,
       title: "Call Us",
       details: [
-        "+91 9777098999",
+        "+91 98530 94447",
         "+91 9777063999",
       ],
     },

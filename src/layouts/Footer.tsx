@@ -135,7 +135,7 @@ const Footer = () => {
                   className="text-[#F4B400]"
                   fontSize="small"
                 />
-                <p>+91 9777098999</p>
+                <p>+91 98530 94447</p>
               </div>
 
               <div className="flex gap-2 items-center">
