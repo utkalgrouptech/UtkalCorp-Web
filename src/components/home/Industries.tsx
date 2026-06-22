@@ -42,7 +42,7 @@ const industries = [
 ];
 
 export default function Industries() {
- const sliderRef = useRef(null);
+const sliderRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
     sliderRef.current?.scrollBy({
