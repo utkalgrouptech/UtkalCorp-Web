@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ContactHero } from "@/components/services/circle-item"
+import {CircleItem} from "@/components/services/circle-item"
 
 import ServicesSection from "@/components/services/ServicesSection";
 
