@@ -2,7 +2,7 @@
 import { pic4 } from "@/asserts/Product";
 import { motion } from "framer-motion";
 const text = "SERVICES";
-export function ContactHero() {
+export function CircleItem() {
     return (
       <section className="relative h-[400px] md:h-[500px] overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-10"></div>
