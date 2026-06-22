@@ -8,7 +8,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen">
       {/* <Navbar /> */}
-      <ContactHero />
+      <CircleItem />
       <div className="bg-white">
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center bg-gray-100 p-2 rounded-md mb-12">
