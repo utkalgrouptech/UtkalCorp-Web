@@ -122,10 +122,9 @@ const Footer = () => {
                   fontSize="small"
                 />
                 <p>
-                  Arya Surya Enclave, Plot No- K5/475,
+                HIG -A-16, Baramunda H.B Colony,
                   <br />
-                  Khata No 95/937, Fourth Floor,
-                  Kalinga Vihar, Patrapada,
+               
                   Bhubaneswar, Odisha 751019
                 </p>
               </div>
@@ -143,7 +142,7 @@ const Footer = () => {
                   className="text-[#F4B400]"
                   fontSize="small"
                 />
-                <p>info@utkalcorporation.in</p>
+                <p>info@utkalcorporation.com</p>
               </div>
             </div>
           </div>

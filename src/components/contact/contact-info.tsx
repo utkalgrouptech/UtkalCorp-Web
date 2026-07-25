@@ -20,9 +20,7 @@ export function ContactInfo() {
             </h5>
 
             <div className="text-gray-300 text-sm leading-6">
-              <p>Arya Surya Enclave, Plot No- K5/475,</p>
-              <p>Khata No 95/937, Fourth Floor,</p>
-              <p>Kalinga Vihar, Patrapada,</p>
+              <p>HIG -A-16, Baramunda H.B Colony,</p>
               <p>Bhubaneswar, Odisha 751019</p>
             </div>
           </div>
@@ -48,7 +46,7 @@ export function ContactInfo() {
       title: "Call Us",
       details: [
         "+91 98530 94447",
-        "+91 9777063999",
+        "+91 9668848999",
       ],
     },
 
@@ -57,7 +55,7 @@ export function ContactInfo() {
       title: "Email Us",
       details: [
         "info@utkalcorporation.com",
-        "santosh@utkalcorporation.com",
+        
       ],
     },
 
