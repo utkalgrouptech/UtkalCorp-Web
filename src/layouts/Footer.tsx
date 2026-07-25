@@ -32,21 +32,36 @@ const Footer = () => {
               infrastructure solutions with excellence, safety and integrity.
             </p>
 
-            <div className="flex gap-2 mt-4">
-              {[
-                <Facebook fontSize="small" />,
-                <LinkedIn fontSize="small" />,
-                <Instagram fontSize="small" />,
-                <YouTube fontSize="small" />,
-              ].map((icon, i) => (
-                <div
-                  key={i}
-                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-[#F4B400] hover:text-[#F4B400] transition-all cursor-pointer"
-                >
-                  {icon}
-                </div>
-              ))}
-            </div>
+          <div className="flex gap-2 mt-4">
+  {[
+    {
+      icon: <Facebook fontSize="small" />,
+      link: "https://www.facebook.com/",
+    },
+    {
+      icon: <LinkedIn fontSize="small" />,
+      link: "https://www.linkedin.com/company/utkal-corporation",
+    },
+    {
+      icon: <Instagram fontSize="small" />,
+      link: "https://www.instagram.com/utkalcorporation/",
+    },
+    {
+      icon: <YouTube fontSize="small" />,
+      link: "https://www.youtube.com/",
+    },
+  ].map((item, i) => (
+    <a
+      key={i}
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-[#F4B400] hover:text-[#F4B400] transition-all cursor-pointer"
+    >
+      {item.icon}
+    </a>
+  ))}
+</div>
           </div>
 
        {/* Quick Links */}
