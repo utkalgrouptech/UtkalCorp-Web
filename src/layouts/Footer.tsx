@@ -40,7 +40,7 @@ const Footer = () => {
     },
     {
       icon: <LinkedIn fontSize="small" />,
-      link: "https://www.linkedin.com/company/utkal-corporation",
+      link: "https://www.linkedin.com/company/utkalcorporation",
     },
     {
       icon: <Instagram fontSize="small" />,
